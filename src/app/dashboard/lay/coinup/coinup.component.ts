@@ -47,9 +47,9 @@ export class CoinupComponent extends DashboardClass implements OnInit, OnDestroy
   }
 
   // toggle switch box
-  chooseInvestmntOptions(option: boolean): void {
+  /* chooseInvestmntOptions(option: boolean): void {
     this.isInvestFromDepositBalance = option;
-   }
+  } */
  
    // Validate User input details
    getCashup(value: number) {
@@ -102,7 +102,7 @@ export class CoinupComponent extends DashboardClass implements OnInit, OnDestroy
         })
       )
  
-     } else { // Investment from user withdrawable balance
+     } /* else { // Investment from user withdrawable balance
  
        const cashupObj: LayInterface = {
          userId: this.user._id,
@@ -134,7 +134,7 @@ export class CoinupComponent extends DashboardClass implements OnInit, OnDestroy
        })
       )
  
-     }
+     } */
    }
 
   ngOnDestroy() {

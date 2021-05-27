@@ -2,8 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError, retry } from 'rxjs/operators';
-import { ServerResponse } from './../common/server/response.interface';
+import { ServerResponse } from './../../common/server/response.interface';
 import { environment } from 'src/environments/environment';
+
+export interface TransactionsInterface {
+    clientId: string;
+    amount: number;
+    investedFrom: string;
+    period: number;
+    plan: string;
+    transactionId: number;
+    transactionStatus: string;
+}
+
 
 const httpOptions = {
   withCredentials: true,
@@ -15,7 +26,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class DashboardService {
+export class TransactionsService {
   private API_DOMAIN: string = environment.API_DOMAIN;
 
   constructor(private http: HttpClient) { }
@@ -33,6 +44,16 @@ export class DashboardService {
     }
     // Return an observable with user-facing error msg
     // return throwError(`Something went wrong, please try again.`)
+  }
+
+
+  // Get user Investment Details
+  getHistory(userId: string): Observable<ServerResponse> {
+    return this.http.get<ServerResponse>(`${this.API_DOMAIN}/api/lay/transactions/lay/${userId}`, httpOptions)
+    .pipe(
+      retry(2), 
+      catchError(this.handleError)
+    );
   }
 
   

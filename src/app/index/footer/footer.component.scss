@@ -1,4 +1,7 @@
 mat-toolbar {
+    position: static;
+    left: 0;
+    bottom: 0;
     .main-footer {}
     .sub-footer {
         display: flex;

@@ -3,9 +3,8 @@ import { UserService, UserInterface } from './../../../common/user/user';
 import { ProfileDetailsInterface, ProfileDetailsService } from './profile-details.service';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Subscription, Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import {map, startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'scola-profile-details',

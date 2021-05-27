@@ -17,6 +17,8 @@ import { LayModule } from './lay/lay.module';
 import { DepositModule } from './deposit/deposit.module';
 import { UserService } from './../common/user/user';
 import { DashboardService } from './dashboard.service';
+import { TransactionsModule } from './transactions/transactions.module';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { DashboardService } from './dashboard.service';
     MainModule,
     FlexLayoutModule,
     RouterModule,
+    TransactionsModule,
     BalanceModule,
     LayModule,
     DepositModule,

@@ -10,6 +10,7 @@ import { LayComponent } from './lay/lay.component';
 import { IndexComponent } from './lay/index/index.component';
 import { CoinupComponent } from './lay/coinup/coinup.component';
 import { CoinoutComponent } from './lay/coinout/coinout.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 
 const routes: Routes = [
@@ -38,7 +39,8 @@ const routes: Routes = [
             ]
           },
         ]
-      }
+      },
+      { path: 'transactions', component: TransactionsComponent },
     ]
   }
 ];

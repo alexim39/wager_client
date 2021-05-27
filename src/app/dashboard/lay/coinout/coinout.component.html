@@ -20,7 +20,7 @@
         <mat-hint>Amount range for Coin-out is &#8358; 5,000.00 - &#8358; 100,000.00</mat-hint>
       </mat-form-field>
 
-      <mat-slide-toggle #investFromBalanceBox [checked]="isInvestFromDepositBalance" (change)="chooseInvestmntOptions(investFromBalanceBox.checked)">Lay from withdrawable balance</mat-slide-toggle>
+      <!-- <mat-slide-toggle #investFromBalanceBox [checked]="isInvestFromDepositBalance" (change)="chooseInvestmntOptions(investFromBalanceBox.checked)">Lay from withdrawable balance</mat-slide-toggle> -->
 
       <button type="button" [disabled]="cashoutBtn" (click)="onSubmit(+cashoutAmount.value)" mat-flat-button color="accent">SUBMIT</button>
 

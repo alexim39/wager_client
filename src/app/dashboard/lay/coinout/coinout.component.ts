@@ -48,9 +48,9 @@ export class CoinoutComponent extends DashboardClass implements OnInit, OnDestro
   }
 
   // toggle switch box
-  chooseInvestmntOptions(option: boolean): void {
+  /* chooseInvestmntOptions(option: boolean): void {
     this.isInvestFromDepositBalance = option;
-  }
+  } */
 
   getCashout(value: number): void {
     if ( value >= 5000 && value <= 100000 ) { // Only activate btn when value is >= 5000
@@ -94,7 +94,7 @@ export class CoinoutComponent extends DashboardClass implements OnInit, OnDestro
         })
       )
 
-    } else {
+    } /* else {
 
        const coinoutObj: LayInterface = {
         userId: this.user._id,
@@ -125,7 +125,7 @@ export class CoinoutComponent extends DashboardClass implements OnInit, OnDestro
           });
         })
       )
-    }
+    } */
   }
 
   ngOnDestroy() {

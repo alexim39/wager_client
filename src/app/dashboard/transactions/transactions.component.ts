@@ -14,7 +14,7 @@ import { UserService, UserInterface } from './../../common/user/user';
     </ul>
   </div>
   <mat-tab-group mat-align-tabs="center" *ngIf="user">
-    <mat-tab label="Lay transactions">
+    <mat-tab label="Lay Transactions">
     <wager-lay [user]="user"></wager-lay>
     </mat-tab>
     <mat-tab label="Deposit Transactions">

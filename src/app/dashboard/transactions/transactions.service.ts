@@ -12,6 +12,7 @@ export interface TransactionsInterface {
     period: number;
     plan: string;
     transactionId: number;
+    start: Date;
     transactionStatus: string;
 }
 

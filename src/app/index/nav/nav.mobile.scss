@@ -1,0 +1,13 @@
+@media (max-width: 800px) {
+    mat-toolbar {
+        a {
+            margin-right: 30px;
+        }
+        .info {
+            mat-icon {
+                position: relative;
+                left: 2rem;
+            }
+        }
+    }
+}

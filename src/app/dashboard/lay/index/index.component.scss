@@ -1,0 +1,26 @@
+section {
+    .lay-container {
+        width: 100%;
+        mat-card {
+            width: 47%;
+            mat-card-header {
+                mat-card-title {
+                    font-family: monospace;
+                    font-weight: bold;
+                }
+            }
+            mat-card-content {
+                p {
+                    text-align: justify;
+                    font-family: 'Trebuchet MS';
+                    margin: 1rem;
+                }
+            }
+            mat-card-actions {
+                button {
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
+}

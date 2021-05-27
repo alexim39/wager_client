@@ -1,0 +1,38 @@
+<form [formGroup]="form" (ngSubmit)="onSignIn(form.value)">
+    <h1>Sign in</h1>
+    <div class="social-container">
+        <a href="#" class="facebook"><i class="material-icons" title="Facebook">facebook</i></a>
+        <!-- <a href="#"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
+    </div>
+    <span>or use your account</span>
+
+    <mat-form-field>
+        <mat-label>Email address</mat-label>
+        <input matInput type="email" formControlName="email">
+        <mat-error *ngIf=" form.get('email').hasError('email')">
+            Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="form.get('email').hasError('required')">
+            Your email is required
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput [type]="signIn_hide ? 'password' : 'text'" formControlName="password">
+        <div mat-icon-button matSuffix (click)="signIn_hide = !signIn_hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="signIn_hide">
+            <mat-icon>{{signIn_hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </div>
+        <mat-error *ngIf=" form.get('password').hasError('pattern')">
+            Password should be minimum of 8 characters
+        </mat-error>
+        <mat-error *ngIf=" form.get('password').hasError('required')">
+            Your password is required
+        </mat-error>
+    </mat-form-field>
+
+    <a href="#">Forgot your password?</a>
+
+    <button [disabled]="form.invalid" mat-flat-button color="accent">SIGN IN</button>
+</form>

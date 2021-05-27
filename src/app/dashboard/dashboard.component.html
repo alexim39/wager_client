@@ -1,0 +1,43 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+
+    <scola-profile *ngIf="currentUser" [currentUser]="currentUser"></scola-profile>
+    <wager-balance></wager-balance>
+    <scola-sidenav></scola-sidenav>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <wager-logo></wager-logo>
+        <span class="spacer"></span>
+        
+        <div *ngIf="!deviceXs">
+          <scola-notification *ngIf="currentUser" [currentUser]="currentUser"></scola-notification>
+        </div>
+        
+        <a mat-button (click)="signOut()"><mat-icon>power_settings_new</mat-icon>Sign out</a>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row *ngIf="deviceXs">
+        <div *ngIf="deviceXs" fxLayout="row" fxLayoutAlign="space-between center">
+          <scola-notification *ngIf="currentUser" [currentUser]="currentUser"></scola-notification>
+        </div>
+    </mat-toolbar-row>
+      
+    </mat-toolbar>
+
+    <!-- Add Content Here -->
+    <main>
+      <router-outlet></router-outlet> 
+    </main>
+    
+  </mat-sidenav-content>
+</mat-sidenav-container>

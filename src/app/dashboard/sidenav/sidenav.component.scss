@@ -1,0 +1,30 @@
+mat-nav-list {
+    a {
+        font-family: 'Arial Narrow';
+        mat-icon {
+            font-size: 1.3rem;
+            margin: 0.2rem 0.4rem 0 0;
+        }
+    }
+    .active {
+        background-color: #ccc;
+    }
+
+    .lay {
+        position: relative;
+        .lay-open, .lay-close {
+            position: absolute;
+            right: 1rem;
+            display: none;
+        }
+    }
+    .layDropdown {
+        display: none;
+        a {
+            span {
+                padding-left: 2.5rem;
+                
+            }
+        }
+    }
+}

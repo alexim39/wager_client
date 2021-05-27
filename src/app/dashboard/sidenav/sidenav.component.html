@@ -1,0 +1,43 @@
+<mat-nav-list>
+    <a mat-list-item [routerLink]="['/dashboard']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <mat-icon>dashboard</mat-icon> Dashboard
+    </a>
+
+    <a mat-list-item [routerLink]="['/dashboard/deposit']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <mat-icon>add</mat-icon> Deposit
+    </a>
+
+    <a mat-list-item [routerLink]="['/dashboard/withdraw']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <mat-icon>account_balance_wallet</mat-icon> withdraw
+    </a>
+
+    <a mat-list-item class="lay">
+      <mat-icon>paid</mat-icon> Lay plans
+      <mat-icon class="lay-close">keyboard_arrow_left</mat-icon>
+      <mat-icon class="lay-open">keyboard_arrow_down</mat-icon>
+    </a>
+    <mat-nav-list class="layDropdown">
+      <a mat-list-item [routerLink]="['/dashboard/lay']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> 
+        <span mat-line>About lay plans</span>
+      </a>
+      <a mat-list-item [routerLink]="['/dashboard/lay/coinout']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> 
+        <span mat-line>Coin-out</span>
+      </a>
+      <a mat-list-item [routerLink]="['/dashboard/lay/coinup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> 
+        <span mat-line>Coin-up</span>
+      </a>
+    </mat-nav-list>
+
+    <a mat-list-item [routerLink]="['/dashboard/histories']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <mat-icon>receipt_long</mat-icon> Transactions
+    </a>
+
+    <a mat-list-item [routerLink]="['/dashboard/calculator']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <mat-icon>calculate</mat-icon> Calculator
+    </a>
+
+    <a mat-list-item [routerLink]="['/dashboard/feedback']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <mat-icon>feedback</mat-icon> Feedback
+    </a>
+
+</mat-nav-list>

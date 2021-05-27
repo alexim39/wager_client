@@ -1,0 +1,15 @@
+a {
+    text-decoration: none;
+    color: inherit;
+    span {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        font-family: sans-serif;
+        mat-icon {
+            font-size: 20px;
+            margin-top: 5px;
+            margin-right: -5px;
+        }
+    }
+}

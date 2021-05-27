@@ -1,0 +1,43 @@
+<section>
+  <div class="breadcrumb-wrap">
+    <ul class="breadcrumb">
+      <li>
+        <a [routerLink]="['/dashboard']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Dashboard</a>
+      </li>
+      <li></li>
+    </ul>
+  </div>
+
+  <!-- Inactive notification alert -->
+  <account-activation></account-activation>
+
+  <section class="main">
+    <!-- 
+      1. information about user task
+        - pending task
+        - task deadline info
+      2. information about user team
+     -->
+
+     <!-- <mat-card>
+      <mat-card-header>
+        <mat-card-title>Pending Task</mat-card-title>
+        <mat-card-subtitle>Task yet to be closed out</mat-card-subtitle>
+      </mat-card-header>
+     </mat-card> -->
+
+    <!--  <mat-card>
+      <mat-card-header>
+        <mat-card-title>Task Deadline</mat-card-title>
+        <mat-card-subtitle>Task close to deadline</mat-card-subtitle>
+      </mat-card-header>
+     </mat-card> -->
+
+  </section>
+
+  <div class="fab" matTooltip="Deposit">
+    <a mat-fab matRipple color="accent" [routerLink]="['/dashboard/deposit']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <mat-icon>add</mat-icon>
+    </a>
+  </div>
+</section>

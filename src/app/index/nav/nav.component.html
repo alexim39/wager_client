@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <wager-logo></wager-logo>
+
+        <span class="spacer"></span>
+        
+        <div *ngIf="!deviceXs">
+            <!-- <a mat-button routerLink="/blogs"><mat-icon>login</mat-icon> News</a>
+            <a routerLink="/signup" mat-button><mat-icon>app_registration</mat-icon> Blogs</a> -->
+        </div>
+        <a mat-icon-button [matMenuTriggerFor]="menu" class="info">
+            <mat-icon>more_vert</mat-icon>
+        </a>
+        <mat-menu #menu="matMenu">
+            <a mat-menu-item routerLink="/contacts"><mat-icon>contacts</mat-icon> Contacts</a>
+            <a mat-menu-item routerLink="/donate"><mat-icon>attach_money</mat-icon> Donate</a>
+        </mat-menu>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row *ngIf="deviceXs">
+        <div *ngIf="deviceXs" fxLayout="row" fxLayoutAlign="space-between center">
+            <!-- <a mat-button routerLink="/blogs"><mat-icon>login</mat-icon> News</a>
+            <a routerLink="/signup" mat-button><mat-icon>app_registration</mat-icon> Blogs</a> -->
+        </div>
+    </mat-toolbar-row>
+  </mat-toolbar>

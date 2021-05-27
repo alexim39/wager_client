@@ -1,0 +1,55 @@
+<section fxLayout="column" fxLayoutAlign="center center">
+  <header>
+    <div class="mat-h1">CoinUp Calculator</div>
+    <div class="mat-body-1">@1% per day for your selected period</div>
+  </header>
+
+  <mat-card>
+    <mat-card-content>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around">
+  
+        <div class="control">
+
+          <mat-form-field>
+            <mat-label>Enter amount</mat-label>
+            <input matInput [(ngModel)]="cashupField" #cashupAmount (keyup)="getCashup(cashupAmount.value)" type="number" maxlength="6" min="5000" max="100000">
+            <mat-hint>Required amount range for CashUp is &#8358; 3,000.00 - &#8358; 100,000.00 </mat-hint>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Select lay duration</mat-label>
+            <mat-select  [(ngModel)]="cashupSelect" #cashupDuration (selectionChange)="getCashup(cashupAmount.value)">
+              <mat-option> </mat-option>
+              <mat-option value="27">1 Month</mat-option> <!-- Minus 4 days for sunday-->
+              <mat-option value="55">2 Months</mat-option> <!-- Minus 4 days for sunday-->
+              <mat-option value="86">3 Months</mat-option> <!-- Minus 5 days for sunday-->
+              <mat-option value="116">4 Months</mat-option> <!-- Minus 4 days for sunday-->
+              <mat-option value="147">5 Months</mat-option> <!-- Minus 4 days for sunday-->
+              <mat-option value="175">6 Months</mat-option> <!-- Minus 5 days for sunday-->
+              <mat-option value="207">7 Months</mat-option> <!-- Minus 4 days for sunday-->
+              <mat-option value="237">8 Months</mat-option> <!-- Minus 4 days for sunday-->
+              <mat-option value="266">9 Months</mat-option> <!-- Minus 4 days for sunday-->
+              <mat-option value="297">10 Months</mat-option> <!-- Minus 4 days for sunday-->
+              <mat-option value="326">11 Months</mat-option> <!-- Minus 4 days for sunday-->
+              <mat-option value="356">12 Months</mat-option> <!-- Minus 5 days for sunday-->
+              <!-- NOTE: An average of 52 days will be deducted for sundays in a year -->
+            </mat-select>
+          </mat-form-field>
+
+        </div>
+  
+        <div class="screen">
+          <div>Let's check your CoinUp amount</div>
+          <div>
+            <small>Coinup lay profit and payout</small>
+          </div>
+          <div class="Profit">PROFIT: <em class="display"> {{ cashupProfit | currency:'NIG':'&#8358;'}}</em></div>
+          <div class="Payout">PAYOUT: <em class="display"> {{ cashupPayout | currency:'NIG':'&#8358;'}}</em></div>
+
+          <button [disabled]="cashupBtn" color="accent" mat-raised-button>LAY</button>
+        </div>
+      </div>
+    </mat-card-content>
+  
+  </mat-card>
+</section>

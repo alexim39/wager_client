@@ -1,0 +1,49 @@
+<section>
+    <div class="breadcrumb-wrap">
+        <ul class="breadcrumb">
+          <li>
+            <a [routerLink]="['/dashboard']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Dashboard</a>
+          </li>
+          <li>about lay plans</li>
+        </ul>
+    </div>
+
+    <div class="lay-container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
+
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Coin-out Plan</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>A plan made for people who need short time investment scheme</p>
+                <p>You CashOut twice in 30 days</p>
+                <p>You get 2% of your investment each day except sundays</p>
+                <p>Your account gets credited at most 48 hours after your withdrawal request except on weekends</p>
+                <p>You Make CashOut investment twice (2 times) in a month</p>
+                <p>Invest a minimum of ₦5,000.00 and CashOut 2% of your invested amount daily for a week. </p>
+                <p>You get 2% return on your investment plus your initial investment after a week</p>
+              </mat-card-content>
+              <mat-card-actions align="end">
+                <button mat-flat-button color="accent">START NOW</button>
+              </mat-card-actions>
+        </mat-card>
+
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Coin-up Plan</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>A plan made for people who need long time investment scheme</p>
+                <p>You CashUp at the end of your chosen investment period</p>
+                <p>You get 1% of your investment each day except sundays</p>
+                <p>Your account gets credited at most 48 hours after your withdrawal request except on weekends</p>
+                <p>Invest a minimum of ₦3,000.00 and CashUp 1% every 24 hours.</p>
+                <p>You can request withdrawal at the expiration of investement period or re-invest from your balance</p>
+                <p>You get 1% return on your investment every 24 hours plus your initial investment</p>
+              </mat-card-content>
+              <mat-card-actions align="end">
+                <button mat-flat-button color="accent">START NOW</button>
+              </mat-card-actions>
+        </mat-card>
+    </div>
+</section>

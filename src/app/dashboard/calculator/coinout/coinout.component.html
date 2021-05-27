@@ -1,0 +1,33 @@
+<section fxLayout="column" fxLayoutAlign="center center">
+  <header>
+    <div class="mat-h1">CoinOut Calculator</div>
+    <div class="mat-body-1">@2% per day for a week</div>
+  </header>
+  
+  <mat-card>
+    <mat-card-content>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around">
+  
+        <div class="control">
+          <mat-form-field>
+            <mat-label>Enter amount</mat-label>
+            <input matInput [(ngModel)]="cashoutField" #cashoutAmount (keyup)="getCashout(cashoutAmount.value)" type="number" maxlength="6" min="5000" max="100000">
+            <mat-hint>Required amount range for CashOut is &#8358; 5,000.00 - &#8358; 100,000.00 </mat-hint>
+          </mat-form-field>
+        </div>
+  
+        <div class="screen">
+          <div>Let's check your CoinOut amount</div>
+          <div>
+            <small>Coinout profit and payout per week</small>
+          </div>
+          <div class="Profit">PROFIT: <em class="display"> {{ cashoutProfit | currency:'NIG':'&#8358;'}}</em></div>
+          <div class="Payout">PAYOUT: <em class="display"> {{ cashoutPayout | currency:'NIG':'&#8358;'}}</em></div>
+          <button [disabled]="cashoutBtn" color="accent" mat-raised-button>LAY</button>
+        </div>
+        
+      </div>
+    </mat-card-content>
+  
+  </mat-card>
+</section>

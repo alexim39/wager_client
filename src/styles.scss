@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Snackbar success
+.success {
+    //background: #43a047  !important;
+    color: #55df5c;
+    font-size: small;
+}
+// Snackbar error
+.error {
+    //background: #c62828 !important;
+    color: #ffa8a8;
+    font-size: small;
+}
+// Snackbar warn
+.warn {
+    //background: #c62828 !important;
+    color: #daca3b;
+    font-size: small;
+}
+
+// set nav color
+mat-toolbar[color="primary"] {
+    background-color: #1d2038 !important;
+}
+
+// breadcrumb
+.breadcrumb-wrap {
+    ul.breadcrumb {
+        padding: 10px 16px;
+        list-style: none;
+        //background-color: #eee;
+        font-size: 12px;
+        font-family: 'Lucida Sans Unicode', Geneva, Verdana;
+    }
+    ul.breadcrumb li {
+        display: inline;
+    }
+    ul.breadcrumb li+li:before {
+        padding: 8px;
+        color: black;
+        content: "/\00a0";
+    }
+    ul.breadcrumb li a {
+        color: #336794;
+        text-decoration: none;
+    }
+    ul.breadcrumb li a:hover {
+        color: #01447e;
+        text-decoration: none;
+    }
+}

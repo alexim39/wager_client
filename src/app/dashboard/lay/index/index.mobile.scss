@@ -1,0 +1,11 @@
+@media (max-width: 800px) {
+    mat-card {
+        width: auto !important;
+        margin-bottom: 2rem;
+        mat-card-actions {
+            button {
+                width: 90% !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+section{
+  text-align: center;
+  padding-top: 2rem;
+  width: 100%;
+  header {
+    .mat-body-1 {
+      margin-top: -1rem;
+    }
+  }
+  mat-card {
+    margin-top: 1rem;
+    padding: 3rem 0;
+    width: inherit;
+    overflow: hidden;
+    mat-card-content {
+      div {
+        .control {
+          width: 50%;
+          margin: auto 0;
+          mat-form-field {
+            width: 60%;
+          }
+        }
+        .screen {
+          width: 50%;
+          border-left: 1px solid #ddd;
+          text-align: center;
+          .Profit, .Payout {
+            margin: 2rem 0 0 0rem;
+          }
+          .display {
+            margin-left: 2em;
+            font-size: 19px;
+            font-family: monospace;
+          }
+          button {
+            margin-top: 2rem;
+            width: 30%;
+          }
+        }
+      }
+    }
+  }
+}

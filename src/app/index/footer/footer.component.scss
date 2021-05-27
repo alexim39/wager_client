@@ -1,0 +1,21 @@
+mat-toolbar {
+    .main-footer {}
+    .sub-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        a {
+            font-size: 0.7rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: inherit;
+            text-decoration: none;
+        }
+        div {
+            margin-top: -1rem;
+            font-family: Verdana;
+            display: block;
+            font-size: 0.7rem;
+        }
+    }
+}

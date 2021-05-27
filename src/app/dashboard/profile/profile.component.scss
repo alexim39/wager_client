@@ -1,0 +1,14 @@
+.sideMenu {
+    color: whitesmoke;
+    font-size: 15px;
+    .spacer {
+      flex: 1 1 auto;
+    }
+    img {
+      height: 45px;
+      width: 45px;
+      margin-right: 6px;
+      border-radius: 50%;
+      background-color: whitesmoke;
+    }
+}

@@ -1,0 +1,37 @@
+<mat-toolbar color="primary" class="sideMenu">
+    <img [src]="imagePath" />
+    {{currentUser.firstname | titlecase }}
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="user">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #user="matMenu" xPosition="before">
+
+      <a mat-menu-item [routerLink]="['/dashboard/profile']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> 
+        <mat-icon>person</mat-icon>
+        Profile
+      </a>
+
+      <a mat-menu-item [routerLink]="['/dashboard/feedback']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> 
+        <mat-icon>feedback</mat-icon>
+        Feedback
+      </a>
+
+      <button mat-menu-item [matMenuTriggerFor]="security">
+        <mat-icon>security</mat-icon>
+        <span>Security</span>
+      </button>
+      <mat-menu #security="matMenu">
+        <a mat-menu-item [routerLink]="['/dashboard/security/password']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> 
+          <mat-icon>password</mat-icon>
+          Password
+        </a>
+      </mat-menu>
+
+      <a mat-menu-item [routerLink]="['/dashboard/donate']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <mat-icon>paid</mat-icon>
+        <span>Donate</span>
+      </a>
+
+    </mat-menu>
+  </mat-toolbar>

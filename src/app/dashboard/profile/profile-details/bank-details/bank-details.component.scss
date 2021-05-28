@@ -1,0 +1,26 @@
+.bank {
+    width: 100%;
+    margin-left: 1rem; 
+    mat-card-header {
+        margin-top: 16px;
+    } 
+    mat-card-content {
+        padding: 1rem;
+        .field {
+            form {
+                mat-form-field {
+                    width: 100%;
+                    .hint {
+                        color: orange;
+                        font-family: monospace;
+                        font-size: 0.8rem;
+                    }
+                }
+                button {
+                    //float: right;
+                    margin-top: 25px;
+                }
+            }
+        }
+    }
+}

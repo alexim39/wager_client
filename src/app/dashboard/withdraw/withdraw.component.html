@@ -1,0 +1,51 @@
+<div class="breadcrumb-wrap">
+    <ul class="breadcrumb">
+      <li>
+        <a [routerLink]="['/dashboard']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Dashboard</a>
+      </li>
+      <li>withdraw</li>
+    </ul>
+  </div>
+
+<mat-card *ngIf="user">
+    <form fxLayout="column" fxLayoutAlign="space-between">
+
+        <mat-form-field>
+            <mat-label>Account Name</mat-label>
+            <input matInput disabled value="{{user.lastname | titlecase}} {{user.firstname | titlecase}}">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="!user.bankName">
+            <mat-label>No bank name set</mat-label>
+            <input matInput disabled>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="!user.accountNo">
+            <mat-label>No account number set</mat-label>
+            <input matInput disabled>
+            <mat-hint class="change-bank"><a [routerLink]="['/dashboard/profile']">Click here to enter your bank details</a></mat-hint>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="user.bankName">
+            <mat-label>Selected Bank</mat-label>
+            <input matInput disabled value="{{user.bankName | titlecase}}">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="user.accountNo">
+            <mat-label>Selected Account Number</mat-label>
+            <input matInput disabled value="{{user.accountNo}}">
+            <mat-hint class="change-bank"><a [routerLink]="['/dashboard/profile']">Click here to change bank details</a></mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Enter amount</mat-label>
+            <input matInput type="number" maxlength="6" min="5000" max="100000" #withdrawAmount (keyup)="checkAmount(+withdrawAmount.value)">
+            <mat-hint>Amount range should be between &#8358; 1,000.00 - &#8358; 1, 000,000.00</mat-hint>
+        </mat-form-field>
+    
+        <!-- <mat-slide-toggle #investFromBalanceBox [checked]="isInvestFromDepositBalance" (change)="chooseInvestmntOptions(investFromBalanceBox.checked)">Lay from withdrawable balance</mat-slide-toggle> -->
+
+        <button [disabled]="!user.accountNo || !onSubmitBtn" (click)="onSubmit(+withdrawAmount.value)" type="button" mat-flat-button color="accent">SUBMIT</button>
+
+    </form>
+</mat-card>

@@ -14,9 +14,8 @@ export interface UserInterface {
     isActive: boolean;
 
     // other members
-    school?: string;
-    faculty?: string;
-    department?: string;
+    bankName?: string;
+    accountNo?: string;
     about?: string;
     phone?: string;
 }

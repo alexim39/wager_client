@@ -8,6 +8,7 @@
       </ul>
     </div>
   
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start">
       <mat-card class="profile" *ngIf="user">
           
         <mat-card-header>
@@ -48,7 +49,7 @@
   
                           <mat-form-field>
                             <mat-label>About yourself</mat-label>
-                            <input matInput value="{{user.about | sentencecase}}"  disabled>
+                            <textarea  matInput value="{{user.about | sentencecase}}" disabled></textarea >
                         </mat-form-field>
                       </div>
                   </div>
@@ -112,17 +113,18 @@
                             </mat-error>
                           </mat-form-field>
 
-                          <button [disabled]="profileForm.invalid" mat-flat-button color="primary">Update</button>
+                          <button [disabled]="profileForm.invalid" mat-flat-button color="accent">UPDATE PROFILE</button>
                       </form>
                   </div>
               </section>
           </mat-card-content>    
       </mat-card>
+
+      <wager-bank-details *ngIf="user" [user]="user"></wager-bank-details>
+    </div>
   
-      <!-- Delete Account -->
-      <mat-card class="delete-profile">
-        <button (click)="deleteProfile()" mat-flat-button color="warn">DELETE ACCOUNT</button>
-      </mat-card>
+    <!-- Delete Account -->
+    <wager-delete-profile *ngIf="user" [user]="user"></wager-delete-profile>
         
 </section>
   

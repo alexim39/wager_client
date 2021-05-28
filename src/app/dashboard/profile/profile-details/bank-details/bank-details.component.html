@@ -1,0 +1,65 @@
+<mat-card class="bank" *ngIf="user">
+
+  <mat-card-header>
+    <mat-card-title>Bank Information</mat-card-title>
+    <!-- <mat-card-subtitle>{{user.firstname | titlecase}} {{user.lastname | titlecase}}</mat-card-subtitle> -->
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="field">
+      <div class="mat-subheading-1">Update Bank Information</div>
+        <form [formGroup]="bankForm" (ngSubmit)="onSubmit(bankForm.value)">
+
+          <mat-form-field>
+            <mat-label>Select bank</mat-label>
+            <mat-select formControlName="bankName" value="{{user.bankName | titlecase}}">
+              <mat-option></mat-option>
+
+              <mat-option value="Ecobank Nigeria">Ecobank Nigeria</mat-option>
+              <mat-option value="Enterprise Bank Limited">Enterprise Bank Limited</mat-option>
+              <mat-option value="Fidelity Bank Nigeria">Fidelity Bank Nigeria</mat-option>
+              <mat-option value="First Bank of Nigeria">First Bank of Nigeria</mat-option>
+              <mat-option value="First City Monument Bank"> First City Monument Bank</mat-option>
+              <mat-option value="Guaranty Trust Bank">Guaranty Trust Bank</mat-option>
+              <mat-option value="Heritage Bank Plc">Heritage Bank Plc</mat-option>
+              <mat-option value="Keystone Bank Limited">Keystone Bank Limited</mat-option>
+              <mat-option value="Polaris Bank">Polaris Bank</mat-option>
+              <mat-option value="Stanbic IBTC Bank Nigeria Limited">Stanbic IBTC Bank Nigeria Limited</mat-option>
+              <mat-option value="Standard Chartered Bank">Standard Chartered Bank</mat-option>
+              <mat-option value="Sterling Bank">Sterling Bank</mat-option>
+              <mat-option value="Union Bank of Nigeria">Union Bank of Nigeria</mat-option>
+              <mat-option value="United Bank for Africa">United Bank for Africa</mat-option>
+              <mat-option value="Unity Bank Plc">Unity Bank Plc</mat-option>
+              <mat-option value="Wema Bank">Wema Bank</mat-option>
+              <mat-option value="Zenith Bank">Zenith Bank</mat-option>
+              <mat-option value="Jaiz Bank Limited">Jaiz Bank Limited</mat-option>
+              <mat-option value="FCMB Group Plc">FCMB Group Plc</mat-option>
+              <mat-option value="Stanbic IBTC Holdings Plc">Stanbic IBTC Holdings Plc</mat-option>
+            </mat-select>
+            <mat-error *ngIf=" bankForm.get('bankName').hasError('required')">
+              Bank name is required
+            </mat-error>
+            <!-- <mat-error *ngIf=" profileForm.get('bankName').hasError('pattern')">
+              Enter a valid bank name
+            </mat-error> -->
+          </mat-form-field>
+        
+          <mat-form-field>
+            <mat-label>Account number</mat-label>
+            <input matInput formControlName="accountNo" value="{{user.accountNo}}">
+            <mat-hint class="hint" align="start">The bank account name should be same as your profile name</mat-hint>
+            <mat-error *ngIf=" bankForm.get('accountNo').hasError('required')">
+              Your account number is required
+            </mat-error>
+            <mat-error *ngIf=" bankForm.get('accountNo').hasError('pattern')">
+              Enter a valid account name
+            </mat-error>
+          </mat-form-field>
+
+          <button [disabled]="bankForm.invalid" mat-flat-button color="accent">UPDATE BANK</button>
+
+      </form>
+    </div>
+  </mat-card-content>
+
+  </mat-card>

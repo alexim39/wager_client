@@ -1,0 +1,18 @@
+@media (max-width: 800px) {
+    .bank {
+        width: auto;
+        margin-top: 1rem;
+        margin-left: 0;
+        padding: 2rem;
+        mat-card-content {
+            .field {
+                form {
+                    button {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        
+    }
+}

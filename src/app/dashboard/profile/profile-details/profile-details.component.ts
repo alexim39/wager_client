@@ -91,7 +91,7 @@ export class ProfileDetailsComponent implements OnInit, OnDestroy {
     // push into list
     this.subscriptions.push(
 
-      this.profileDetailsService.update(profile).subscribe((res) => {
+      this.profileDetailsService.updateProfile(profile).subscribe((res) => {
         if (res.code === 200) {
           this.snackBar.open(`${res.msg}`, `Close`, {
             duration: 4000,
@@ -108,35 +108,7 @@ export class ProfileDetailsComponent implements OnInit, OnDestroy {
 
   }
 
-  // delete profile
-  deleteProfile() {
-    const confirmDelete = confirm(`You are about to permanently delete your profile from Kudutask, by continuing you will loss access to your profile and all information you have in Kudutask`);
-    if (confirmDelete) {
-
-      // push into list
-      this.subscriptions.push(
-        this.profileDetailsService.delete(this.user._id).subscribe((res) => {
-          if (res.code === 200) {
-            this.snackBar.open(`${res.msg}`, `Close`, {
-              duration: 4000,
-              panelClass: ['success']
-            });
-
-            // sign user out
-            setTimeout(() => {
-              // redirect user to task list
-              this.route.navigateByUrl(`/`);
-            }, 4000);
-          }
-        }, (error) => {
-          this.snackBar.open(`${error.error.msg}`, `Close`, {
-            duration: 4000,
-            panelClass: ['error']
-          });
-        })
-      )
-    }
-  }
+  
 
   ngOnDestroy() {
     // unsubscribe list

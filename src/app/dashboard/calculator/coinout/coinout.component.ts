@@ -34,7 +34,7 @@ export class CashoutCalculatorComponent extends CalculatorClass implements OnIni
     this.cashoutBtn = true;
   }
 
-  public getCashout(value: number | any) {
+  getCashout(value: number) {
     // console.log(value);
     this.cashoutProfit = this.cashoutPercentage * value * 6; // Mutiply by 6 instead of 7 because sunday is not involved
     this.cashoutPayout = this.cashoutProfit + this.cashoutField;

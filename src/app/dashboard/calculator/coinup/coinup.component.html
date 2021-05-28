@@ -12,13 +12,13 @@
 
           <mat-form-field>
             <mat-label>Enter amount</mat-label>
-            <input matInput [(ngModel)]="cashupField" #cashupAmount (keyup)="getCashup(cashupAmount.value)" type="number" maxlength="6" min="5000" max="100000">
+            <input matInput [(ngModel)]="cashupField" #cashupAmount (keyup)="getCashup(+cashupAmount.value)" type="number" maxlength="6" min="5000" max="100000">
             <mat-hint>Required amount range for CashUp is &#8358; 3,000.00 - &#8358; 100,000.00 </mat-hint>
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Select lay duration</mat-label>
-            <mat-select  [(ngModel)]="cashupSelect" #cashupDuration (selectionChange)="getCashup(cashupAmount.value)">
+            <mat-select  [(ngModel)]="cashupSelect" #cashupDuration (selectionChange)="getCashup(+cashupAmount.value)">
               <mat-option> </mat-option>
               <mat-option value="27">1 Month</mat-option> <!-- Minus 4 days for sunday-->
               <mat-option value="55">2 Months</mat-option> <!-- Minus 4 days for sunday-->

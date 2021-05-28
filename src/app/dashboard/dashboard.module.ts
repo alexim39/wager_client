@@ -18,7 +18,7 @@ import { DepositModule } from './deposit/deposit.module';
 import { UserService } from './../common/user/user';
 import { DashboardService } from './dashboard.service';
 import { TransactionsModule } from './transactions/transactions.module';
-
+import { WithdrawModule } from './withdraw/withdraw.module'
 
 @NgModule({
   declarations: [
@@ -39,6 +39,7 @@ import { TransactionsModule } from './transactions/transactions.module';
     BalanceModule,
     LayModule,
     DepositModule,
+    WithdrawModule,
     DasbhoardRoutingModule
   ],
   exports: [],

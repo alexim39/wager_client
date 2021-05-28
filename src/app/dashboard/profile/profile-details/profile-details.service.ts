@@ -10,11 +10,16 @@ export interface ProfileDetailsInterface {
     userId: string;
     firstname: string;
     lastname: string;
-    jobTile: string;
-    organization: string;
     email: string;
     phone: string;
     about?: string;
+}
+
+export interface BankDetailsInterface {
+  userId: string;
+  bankName: string;
+  accountNo: string;
+
 }
 
 
@@ -50,7 +55,7 @@ export class ProfileDetailsService {
 
 
   // update user profile
-  update(profileDetails: ProfileDetailsInterface): Observable<ServerResponse> {
+  updateProfile(profileDetails: ProfileDetailsInterface): Observable<ServerResponse> {
     return this.http.put<ServerResponse>(`${this.API_DOMAIN}/api/user`, profileDetails, httpOptions)
       .pipe(
         retry(2), // retry a failed request up to 2 times
@@ -58,8 +63,17 @@ export class ProfileDetailsService {
       );
   }
 
+  // update user profile
+  updateBankProfile(bankDetails: BankDetailsInterface): Observable<ServerResponse> {
+    return this.http.put<ServerResponse>(`${this.API_DOMAIN}/api/user/bank`, bankDetails, httpOptions)
+      .pipe(
+        retry(2), // retry a failed request up to 2 times
+        catchError(this.handleError),
+      );
+  }
+
   // delete user profile
-  delete(userId: string): Observable<ServerResponse> {
+  deleteProfile(userId: string): Observable<ServerResponse> {
     return this.http.delete<ServerResponse>(`${this.API_DOMAIN}/api/user/${userId}`, httpOptions)
       .pipe(
         catchError(this.handleError),

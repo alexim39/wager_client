@@ -1,0 +1,5 @@
+<mat-card class="delete-profile" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start" fxlayoutGap="3rem">
+    <button [disabled]="!isChecked" (click)="deleteProfile()" mat-flat-button color="warn">DELETE ACCOUNT</button>
+
+    <mat-slide-toggle color="warn" [(ngModel)]="isChecked">I Want to delete my account</mat-slide-toggle>
+</mat-card>

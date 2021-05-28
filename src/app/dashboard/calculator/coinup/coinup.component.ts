@@ -33,7 +33,7 @@ export class CashupCalculatorComponent extends CalculatorClass implements OnInit
     this.cashupBtn = true;
   }
 
-  public getCashup(value: number | any) {
+  public getCashup(value: number) {
 
     // Check if both input field are empty
     if (this.cashupField === undefined || this.cashupSelect === undefined) {

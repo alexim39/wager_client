@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { TransactionsClass } from './../transactions.class';
 import { TransactionsInterface, TransactionsService } from './../transactions.service';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 @Component({
   selector: 'wager-lay',
@@ -16,7 +17,6 @@ export class LayComponent extends TransactionsClass implements OnInit {
 
   @Input() user: UserInterface;
   subscriptions: Subscription[] = [];
-
 
 
   displayedColumns: string[] = ['position', 'transactionId', 'plan', 'amount', 'period', 'startDate', 'endDate', 'daysPast', 'daysLeft', 'profit'];
@@ -38,7 +38,8 @@ export class LayComponent extends TransactionsClass implements OnInit {
 
 
   constructor(
-    private transactionsService: TransactionsService
+    private transactionsService: TransactionsService,
+    private breakpointObserver: BreakpointObserver
   ) {
     super();
     // Init totalProfit/totalDeposit
@@ -199,6 +200,21 @@ export class LayComponent extends TransactionsClass implements OnInit {
 
   ngOnInit(): void {
     this.getInvestmntHistory(this.user._id)
+
+    this.DeviceOrientation()
+  }
+
+  private DeviceOrientation() {
+    const layoutChanges = this.breakpointObserver.observe([
+      '(orientation: portrait)',
+      '(orientation: landscape)',
+    ]);
+
+    layoutChanges.subscribe(result => {
+      console.log(result)
+      //updateMyLayoutForOrientationChange();
+    });
+
   }
 
 

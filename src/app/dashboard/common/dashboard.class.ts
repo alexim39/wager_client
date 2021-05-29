@@ -8,29 +8,28 @@ export class DashboardClass { // UserDashboardClass is technically user class
   }
 
   // Get sum of amount property for deposits object
-  public getTotalDeposit(deposits: any): number{
+  getTotalDeposit(deposits: any): number{
     let sum = 0;
 
     deposits.forEach((deposit: any) => {
-      if (deposit.transactionStatus == 'completed') {
-        sum += +deposit.depositAmount;
+      if (deposit.transactionStatus === 'Completed') {
+        sum += +deposit.amount;
       }
     })
     return sum;
   }
 
   // Get sum of amount property for withdrawal object
-  public getTotalWithdrawal(withdrawals: any): number{
+  getTotalWithdrawal(withdrawals: any): number{
     let sum = 0;
 
     withdrawals.forEach((withdrawal: any) => {
-      if (withdrawal.withdrawStatus == 'completed') {
-        sum += +withdrawal.withdrawAmount;
+      if (withdrawal.status === 'Completed') {
+        sum += +withdrawal.amount;
       }
     })
     return sum;
   }
-
 
   // Get x (2) percent of amount (5000)
   protected get_X_PercentageOf_Amount(percent: number, amount: number): number {
@@ -68,37 +67,12 @@ export class DashboardClass { // UserDashboardClass is technically user class
     return false;
   }
 
-
   protected paybleAmount(amount: number): number {
     return amount - this.get_X_PercentageOf_Amount(2, amount);
   }
 
-  protected getWagerProfit(wager: any, odd: number, amount: number): number {
-    if (this.isInArray(wager.games.game, 'lose')) {
-      return 0;
-    } else if (this.isInArray(wager.games.game, 'win')) {
-      return this.paybleAmount(odd * amount);
-    } else if (this.isInArray(wager.games.game, 'running')) {
-      return 0;
-    } else {
-      return 0;
-    }
-  }
-
-  protected isInArray(array: any, search: string): boolean {
-    let newArray: any = [];
-
-    array.forEach(  ( games: any) => {
-      newArray.push(games.status);
-    });
-
-    //console.log(newArray) //['win', 'lose', 'win']
-    return newArray.indexOf(search) >= 0;
-  }
-
-
   // Add suffix to day of the month
-  public getDayNumberSuffix(day: number) {
+  getDayNumberSuffix(day: number) {
     if (day >= 11 && day <= 13) {
         return "th";
     }

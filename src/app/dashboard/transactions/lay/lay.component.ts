@@ -6,7 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { TransactionsClass } from './../transactions.class';
 import { TransactionsInterface, TransactionsService } from './../transactions.service';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'wager-lay',
@@ -24,17 +24,14 @@ export class LayComponent extends TransactionsClass implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  // init empty response
-  isEmptyResponse: Boolean;
-
   histories: MatTableDataSource<TransactionsInterface>;
   historiesDetails: TransactionsInterface;
 
   // balance: number;
   totalProfit: number;
   totalDeposit: number;
-
   isTableExpanded = false;
+  isEmptyResponse: Boolean;
 
 
   constructor(
@@ -47,12 +44,25 @@ export class LayComponent extends TransactionsClass implements OnInit {
     this.totalDeposit = 0;
   }
 
+  // check for empty response
+  private emptyResponse(array: any) {
+    if (array.length === 0) {
+      // array empty or does not exist
+      this.isEmptyResponse = false;
+    }else{
+      this.isEmptyResponse = true;
+    }
+  }
+
 
   // Get current user investments histories
   private getInvestmntHistory(clientId: string) {
     this.transactionsService.getHistory(clientId).subscribe((res) => {
 
       if (res.code === 200) {
+
+        // check empty response
+        this.emptyResponse(res.obj);
 
         setTimeout(() => this.histories.paginator = this.paginator);
         setTimeout(() => this.histories.sort = this.sort);

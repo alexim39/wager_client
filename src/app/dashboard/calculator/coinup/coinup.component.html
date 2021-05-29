@@ -46,7 +46,7 @@
           <div class="Profit">PROFIT: <em class="display"> {{ cashupProfit | currency:'NIG':'&#8358;'}}</em></div>
           <div class="Payout">PAYOUT: <em class="display"> {{ cashupPayout | currency:'NIG':'&#8358;'}}</em></div>
 
-          <button [disabled]="cashupBtn" color="accent" mat-raised-button>LAY</button>
+          <button [routerLink]="['/dashboard/lay/coinup']" [disabled]="cashupBtn" color="accent" mat-raised-button>LAY NOW</button>
         </div>
       </div>
     </mat-card-content>

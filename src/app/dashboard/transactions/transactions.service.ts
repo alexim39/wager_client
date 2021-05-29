@@ -6,7 +6,7 @@ import { ServerResponse } from './../../common/server/response.interface';
 import { environment } from 'src/environments/environment';
 
 export interface TransactionsInterface {
-    clientId: string;
+    userId: string;
     amount: number;
     investedFrom: string;
     period: number;
@@ -14,6 +14,15 @@ export interface TransactionsInterface {
     transactionId: number;
     start: Date;
     transactionStatus: string;
+}
+
+export interface WithdrawalInterface {
+  userId: string;
+  amount: number;
+  bankName: string;
+  accountNo: string;
+  withdrawDate: Date;
+  status: string;
 }
 
 
@@ -54,6 +63,33 @@ export class TransactionsService {
     .pipe(
       retry(2), 
       catchError(this.handleError)
+    );
+  }
+
+
+  // get all client withdraw request
+  getWithdrawRequest(userId: string): Observable<ServerResponse> {
+    return this.http.get<ServerResponse>(`${this.API_DOMAIN}/api/withdraw/request/${userId}`, httpOptions)
+    .pipe(
+      retry(2), 
+      catchError(this.handleError)
+    );
+  }
+
+  // cancel client withdraw request
+  cancelWithdrawRequest(withdrawId: string): Observable<ServerResponse> {
+    return this.http.get<ServerResponse>(`${this.API_DOMAIN}/api/withdraw/cancel/${withdrawId}`, httpOptions)
+    .pipe(
+      retry(2), 
+      catchError(this.handleError)
+    );
+  }
+
+  public getDeposits(userId: string): Observable<ServerResponse>{
+    return this.http.get<ServerResponse>(`${this.API_DOMAIN}/api/deposit/${userId}`, httpOptions)
+    .pipe(
+        retry(2),
+        catchError(this.handleError)            
     );
   }
 

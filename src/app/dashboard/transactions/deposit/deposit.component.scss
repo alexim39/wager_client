@@ -1,0 +1,35 @@
+section {
+    .filter {
+        background-color: white;
+        height: 100%;
+        padding: 1rem;
+        margin-bottom: -2rem;
+        mat-form-field {
+            width: 30%;
+        }
+    }
+    table {
+        width: 100%;
+        margin-top: 2rem;
+
+        // this class is programatically added on the template
+        .setCompletedCSS {
+            //text-decoration: line-through;
+            color: #1e941e !important;
+        }
+
+        .setRejectedCSS {
+            color: #d3502f !important;
+        }
+
+        .setPendingCSS {
+            color: #d6eb1e !important;
+        }
+    }  
+}
+
+.isEmptyResponse {
+    text-align: center;
+    padding: 3rem;
+    color: #d39f2f;
+}

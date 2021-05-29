@@ -4,7 +4,21 @@
     </mat-toolbar-row>
 
     <mat-toolbar-row class="sub-footer">
-      <a routerLink="['/']">&copy; 2021 - Wager</a>
-      <div>All rights reserved.</div>
+      
+      <div>
+        <div class="link">
+          <a mat-button [routerLink]="['/']">&copy; 2021 - Traz Solutions. All rights reserved.</a>
+        </div>
+        <div class="tnc">
+          <a mat-button  [routerLink]="['../legal/terms']">Terms</a>
+          <a mat-button  [routerLink]="['../legal/privacy']">Privacy</a>
+          <a mat-button  [routerLink]="['../legal/cookies']">Cookies</a>
+        </div>
+        <div class="social">
+          <a mat-button class="github" href="#" target="_blank">GitHub</a>
+          <a mat-button class="twitter" href="#" target="_blank">Twitter</a>
+          <a mat-button class="facebook" href="#" target="_blank">Facebook</a>
+        </div>
+      </div>
     </mat-toolbar-row>
 </mat-toolbar>

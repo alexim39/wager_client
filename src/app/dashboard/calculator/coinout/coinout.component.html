@@ -23,7 +23,7 @@
           </div>
           <div class="Profit">PROFIT: <em class="display"> {{ cashoutProfit | currency:'NIG':'&#8358;'}}</em></div>
           <div class="Payout">PAYOUT: <em class="display"> {{ cashoutPayout | currency:'NIG':'&#8358;'}}</em></div>
-          <button [disabled]="cashoutBtn" color="accent" mat-raised-button>LAY</button>
+          <button [routerLink]="['/dashboard/lay/coinout']" [disabled]="cashoutBtn" color="accent" mat-raised-button>LAY NOW</button>
         </div>
         
       </div>

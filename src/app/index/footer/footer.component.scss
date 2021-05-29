@@ -2,6 +2,7 @@ mat-toolbar {
     position: static;
     left: 0;
     bottom: 0;
+    padding-bottom: 1rem;
     .main-footer {}
     .sub-footer {
         display: flex;
@@ -15,10 +16,30 @@ mat-toolbar {
             text-decoration: none;
         }
         div {
-            margin-top: -1rem;
-            font-family: Verdana;
-            display: block;
-            font-size: 0.7rem;
+            width: inherit;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            .social {
+                margin-right: 25px;
+                a {
+                    text-decoration: none;
+                    color: rgb(172, 172, 172);
+                    font-size: 12px;
+                }
+                .github:hover {
+                    background-color: #24292e;
+                    color: white;
+                }
+                .twitter:hover {
+                    background-color: #1DA1F2;
+                    color: white;
+                }
+                .facebook:hover {
+                    background-color: #4267B2;
+                    color: white;
+                }
+            }
         }
     }
 }

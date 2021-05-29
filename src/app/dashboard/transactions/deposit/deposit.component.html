@@ -1,1 +1,81 @@
-<p>deposit works!</p>
+<div *ngIf="isEmptyResponse then showResult else noResult"></div>
+<ng-template #showResult>
+<section>
+
+    <div  class="filter">
+        <mat-form-field>
+            <mat-label>Search Table</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Search with any column data" #input>
+        </mat-form-field>
+    </div>
+
+
+
+    <table mat-table [dataSource]="histories" matSort>
+
+        <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> S/n </th>
+        <td mat-cell *matCellDef="let history; let i = index;"> {{i + 1}} </td>
+        </ng-container>
+    
+        <!-- Investment ID Column -->
+        <ng-container matColumnDef="investmentId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Transaction no </th>
+        <td mat-cell *matCellDef="let history"> {{history.transactionId}} </td>
+        </ng-container>
+    
+        <!-- Amount Column -->
+        <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Amount </th>
+        <td mat-cell *matCellDef="let history"> {{ history.amount | currency:'NIG':'&#8358;' }} </td>
+        </ng-container>
+
+        <!-- Date Column -->
+        <ng-container matColumnDef="transactionDate">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Transaction Date </th>
+        <td mat-cell *matCellDef="let history"> {{ history.depositDate | date }},<small>{{ history.depositDate | date:'shortTime' }}</small> </td>
+        </ng-container>
+
+        <!-- Start Date Column -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Transaction Status </th>
+            <td mat-cell *matCellDef="let history"> {{ history.transactionStatus | titlecase }} </td>
+        </ng-container>
+
+        <!-- End Date Column -->
+        <ng-container matColumnDef="method">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Deposit Method </th>
+            <td mat-cell *matCellDef="let history"> {{ history.transactionMethod | titlecase }}</td> 
+        </ng-container>  
+        
+        <!-- total deposit column -->
+        <ng-container matColumnDef="deposit">
+        <td mat-footer-cell *matFooterCellDef colspan="6">
+            Total Deposit <span> {{ totalDeposit | currency:'NIG':'&#8358;'}}</span>
+        </td>
+        </ng-container>
+
+    
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row [ngClass]="{'setPendingCSS': setPendingCSS(history.transactionStatus), 
+                                'setCompletedCSS': setCompletedCSS(history.transactionStatus), 
+                                'setRejectedCSS': setRejectedCSS(history.transactionStatus)}" 
+        *matRowDef="let history; columns: displayedColumns;">
+        </tr>
+        <tr mat-footer-row *matFooterRowDef="['deposit']"></tr>
+    </table>
+
+  <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</section>
+</ng-template>
+
+<ng-template #noResult>
+    <div class="isEmptyResponse">
+      No deposit found
+  </div>
+</ng-template>

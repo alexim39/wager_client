@@ -8,7 +8,6 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './common/token-interceptor';
 
-
 @NgModule({
   declarations: [
     AppComponent,

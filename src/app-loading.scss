@@ -1,0 +1,9 @@
+.app-loading {
+    .logo {
+      width: 120px;
+      height: 100px;
+      
+      // this way asset gets processed by webpack 
+      background: url('./assets/img/wagerloading.jpg') center center no-repeat; 
+    }
+  }

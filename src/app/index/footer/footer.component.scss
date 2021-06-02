@@ -1,43 +1,63 @@
-mat-toolbar {
+div {
     position: static;
     left: 0;
     bottom: 0;
-    padding-bottom: 1rem;
-    .main-footer {}
-    .sub-footer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        a {
-            font-size: 0.7rem;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            color: inherit;
-            text-decoration: none;
-        }
-        div {
-            width: inherit;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            .social {
-                margin-right: 25px;
-                a {
-                    text-decoration: none;
-                    color: rgb(172, 172, 172);
-                    font-size: 12px;
+    background-color: #1d2038;
+    padding-top: 1rem;
+    footer {
+        margin: auto;
+        width: 50%;
+        aside {
+            a {
+                font-size: 0.7rem;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                color: inherit;
+                text-decoration: none;
+                color: whitesmoke;
+            }
+            .main-footer {
+                background-color: #1d2038;
+                color: rgb(196, 195, 195);
+                .logo {
+                    img {
+                        margin-bottom: -1rem;
+                    }
+                    div {
+                        span {
+                            font-size: 0.8rem;
+                        }
+                        a {
+                           color: rgb(196, 195, 195);
+                        }
+                    }
+                    mat-icon {
+                        font-size: 12px;
+                    }
                 }
-                .github:hover {
-                    background-color: #24292e;
-                    color: white;
-                }
-                .twitter:hover {
-                    background-color: #1DA1F2;
-                    color: white;
-                }
-                .facebook:hover {
-                    background-color: #4267B2;
-                    color: white;
+            }
+            .sub-footer {
+                border-top: 1px solid rgb(139, 139, 139);
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+                .social {
+                    margin-right: 25px;
+                    a {
+                        text-decoration: none;
+                        color: rgb(172, 172, 172);
+                        font-size: 12px;
+                    }
+                    .github:hover {
+                        background-color: #24292e;
+                        color: white;
+                    }
+                    .twitter:hover {
+                        background-color: #1DA1F2;
+                        color: white;
+                    }
+                    .facebook:hover {
+                        background-color: #4267B2;
+                        color: white;
+                    }
                 }
             }
         }

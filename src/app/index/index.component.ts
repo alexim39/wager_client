@@ -4,9 +4,11 @@ import { Subscription } from 'rxjs'
 
 @Component({
   selector: 'app-index',
-  template: `<wager-nav [deviceXs]="deviceXs"></wager-nav>
-             <router-outlet></router-outlet>
-             <wager-footer></wager-footer>
+  template: `<div fxLayout="column" fxFlexFill>
+               <wager-nav [deviceXs]="deviceXs"></wager-nav>
+               <router-outlet></router-outlet>
+               <wager-footer></wager-footer>
+              </div>
             `
 })
 export class IndexComponent implements OnInit {

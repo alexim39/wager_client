@@ -1,14 +1,25 @@
-<mat-toolbar>
-    <mat-toolbar-row class="main-footer">
-      
-    </mat-toolbar-row>
-
-    <mat-toolbar-row class="sub-footer">
-      
-      <div>
-        <div class="link">
-          <a mat-button [routerLink]="['/']">&copy; 2021 - Traz Solutions. All rights reserved.</a>
+<div>
+  <footer>
+    <aside fxLayout="column" fxFlexFill>
+      <div class="main-footer" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
+        <div class="logo">
+          <img src="./../../../assets/img/wager_loader.jpg">
+          <div>
+            <span>
+              Traz Solutions & Technologies is officially registred with Nigeria CAC <br>
+              with company registration number 08085054 <br>
+              <mat-icon>phone</mat-icon>Phone support: 0808048549 <br>
+              <mat-icon>address</mat-icon> Office Address: 54 Nkpor road Rumuolumeni Port Harcourt, Rivers State
+            </span> <br>
+            <a mat-button [routerLink]="['/']">&copy; 2021 - Traz Solutions. All rights reserved.</a>
+          </div>
         </div>
+        <div class="link">
+           <button mat-flat-button color="accent">SIGN UP NOW</button>
+        </div>
+      </div>
+  
+      <div class="sub-footer" fxLayout="row" fxLayoutAlign="space-between center" fxFlexFill>
         <div class="tnc">
           <a mat-button  [routerLink]="['../legal/terms']">Terms</a>
           <a mat-button  [routerLink]="['../legal/privacy']">Privacy</a>
@@ -20,5 +31,6 @@
           <a mat-button class="facebook" href="#" target="_blank">Facebook</a>
         </div>
       </div>
-    </mat-toolbar-row>
-</mat-toolbar>
+  </aside>
+  </footer>
+</div>

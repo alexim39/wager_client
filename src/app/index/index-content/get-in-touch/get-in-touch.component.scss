@@ -1,0 +1,18 @@
+div {
+    padding: 2rem 0;
+    height: auto;
+    section {
+        margin: auto;
+        width: 50%;
+        aside {
+            .msg-area {
+                width: 60%;
+                color: #1d2038;
+            }
+            .btn-area {
+                width: 40%;
+                //background-color: green;
+            }
+        }
+    }
+}

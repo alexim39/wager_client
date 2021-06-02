@@ -1,0 +1,41 @@
+@media only screen and (max-width:800px) {
+    /* For tablets: */
+   
+    div {
+        padding: 2rem;
+        section {
+            width: auto !important;
+            .video {
+                width: 90% !important;
+                height: 10rem !important;
+            }
+            .caption {
+                h1 {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }  
+}
+
+
+@media only screen and (max-width:500px) {
+    /* For mobile phones: */
+    
+    div {
+        padding: 2rem;
+        section {
+            width: auto !important;
+            .video {
+                width: 90% !important;
+                height: 10rem !important;
+            }
+            .caption {
+                h1 {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    
+}

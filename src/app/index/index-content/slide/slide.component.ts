@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input, ViewChild, OnInit, ElementRef } from "@angular/core";
 import { MatDialog } from '@angular/material/dialog';
-import { AuthComponent } from './../auth/auth.component';
+import { AuthComponent } from '../../auth/auth.component';
 // declare jquery as any
 declare const $: any;
 

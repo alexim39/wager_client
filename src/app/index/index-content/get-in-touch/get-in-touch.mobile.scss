@@ -1,0 +1,44 @@
+
+@media only screen and (max-width:800px) {
+    /* For tablets: */
+   
+    div {
+        padding: 1rem;
+        text-align: justify;
+        section {
+            width: auto !important;
+            aside {
+                .msg-area {
+                    width: auto !important;
+                }
+                .btn-area {
+                    width: auto !important;
+                    //background-color: green;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width:500px) {
+    /* For mobile phones: */
+    
+    div {
+        padding: 1rem;
+        text-align: justify;
+        section {
+            width: auto !important;
+            aside {
+                .msg-area {
+                    width: auto !important;
+                }
+                .btn-area {
+                    width: auto !important;
+                    //background-color: green;
+                }
+            }
+        }
+    }
+    
+}

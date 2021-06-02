@@ -1,0 +1,50 @@
+/* section {
+    height: auto;
+    width: 80%;
+    margin: 0 auto;
+    .column {
+        padding: 2rem;
+        margin-left: 1rem;
+        text-align: justify;
+        width: 100%;
+        div {
+            text-align: left;
+        }
+        p {
+            font-size: 15px;
+        }       
+    }
+} */
+
+div {
+    background-color: whitesmoke;
+    padding: 2rem 0;
+    section {
+        margin: auto;
+        width: 50%;
+        aside {
+            .row {
+                .plan-img {
+                    margin: -2rem 0;
+                    div {
+                        border: 3px solid #2c2f41;
+                        border-radius: 1rem;
+                        padding: 10px;
+                        height: 10rem;
+                        width: 25rem;
+                    }
+                }
+                .plan-text {
+                    div {
+                        .mat-h1 {
+                            margin-bottom: 2rem;
+                        }
+                        p {
+                            text-align: justify;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

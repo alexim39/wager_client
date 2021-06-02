@@ -1,0 +1,43 @@
+div {
+    background-color: whitesmoke;
+    padding: 1rem 0;
+    section {
+        margin: auto;
+        width: 50%;
+        aside {
+            .first-row {
+                .about-text {
+                    width: 50%;
+                    h1 {
+                        span {
+                            color: #E91E63;
+                        }
+                    }
+                    p {
+                        width: 100%;
+                        text-align: justify;
+                    }
+                }
+                .about-img {
+                    width: 50%;
+                    div {
+                        border: 3px solid #2c2f41;
+                        border-radius: 1rem;
+                        padding: 10px;
+                        height: 4rem;
+                        width: 20rem;
+                    }
+                }
+            }
+            .second-row {
+                div {
+                    border: 3px solid #2c2f41;
+                    border-radius: 1rem;
+                    padding: 10px;
+                    height: 4rem;
+                    width: 20rem; 
+                }
+            }
+        }
+    }
+}

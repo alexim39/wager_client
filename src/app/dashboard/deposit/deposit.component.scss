@@ -1,0 +1,16 @@
+.depositContainer {
+    width: 30%;
+    padding: 3rem;
+    form {
+        mat-form-field {
+            width: auto;
+            margin-bottom: 1rem;
+        }
+        mat-slide-toggle {
+            margin-bottom: 2rem;
+        }
+        button {
+            width: auto;
+        }
+    }
+}

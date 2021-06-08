@@ -8,6 +8,19 @@
       </ul>
     </div>
 
+      <mat-card class="depositContainer">
+        <form fxLayout="column" fxLayoutAlign="space-between">
+
+          <mat-form-field>
+            <mat-label>Enter amount</mat-label>
+            <input matInput id="amount" #depositAmount (keyup)="getCashout(+depositAmount.value)" type="number" maxlength="6" min="3000" max="100000">
+            <mat-hint>Amount range for deposit is &#8358; 3,000.00 - &#8358; 100,000.00</mat-hint>
+          </mat-form-field>
+
+          <button type="button" [disabled]="submitBtn" (click)="onSubmit(+depositAmount.value)" mat-flat-button color="accent">SUBMIT</button>
+
+        </form>
+      </mat-card>
 
 
 </section>

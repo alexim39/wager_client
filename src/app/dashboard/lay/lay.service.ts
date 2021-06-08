@@ -21,7 +21,7 @@ const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  }
+}
 
 @Injectable({
     providedIn: 'root'
@@ -46,7 +46,7 @@ const httpOptions = {
       // return throwError(`Something went wrong, please try again.`)
     }
 
-    // Submit Cashout Investment from deposit
+  // Submit Cashout Investment from deposit
   coinoutFromDeposit(coinoutObj: LayInterface): Observable<ServerResponse> {
     return this.http.post<ServerResponse>(`${this.API_DOMAIN}/api/lay/coinout/deposit`, coinoutObj, httpOptions)
     .pipe(

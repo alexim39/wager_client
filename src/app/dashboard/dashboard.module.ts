@@ -19,6 +19,7 @@ import { UserService } from './../common/user/user';
 import { DashboardService } from './dashboard.service';
 import { TransactionsModule } from './transactions/transactions.module';
 import { WithdrawModule } from './withdraw/withdraw.module'
+import { FeedbackModule } from './feedback/feedback.module';
 
 @NgModule({
   declarations: [
@@ -26,20 +27,9 @@ import { WithdrawModule } from './withdraw/withdraw.module'
     SidenavComponent,
   ],
   imports: [
-    CommonModule,
-    CalculatorModule,
-    MaterialModule,
-    LogoModule,
-    NotificationModule,
-    ProfileModule,
-    MainModule,
-    FlexLayoutModule,
-    RouterModule,
-    TransactionsModule,
-    BalanceModule,
-    LayModule,
-    DepositModule,
-    WithdrawModule,
+    CommonModule, CalculatorModule, MaterialModule, LogoModule, NotificationModule,
+    ProfileModule, MainModule, FlexLayoutModule, RouterModule, FeedbackModule,
+    TransactionsModule, BalanceModule, LayModule, DepositModule, WithdrawModule,
     DasbhoardRoutingModule
   ],
   exports: [],

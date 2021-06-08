@@ -1,0 +1,21 @@
+.feedbackContainerWrapper {
+    .feedbackContainer {
+        width: 50%; // 50% x 2
+        mat-card {
+            padding-top: 3%;
+            mat-card-content {
+                padding: 3%;
+                p {
+                    text-align: justify;
+                }
+                mat-form-field {
+                    width: 100%;
+                }
+            }
+            mat-card-footer {
+                padding-top: 3%;
+                padding-left: 3%;
+            }
+        }
+    }
+}

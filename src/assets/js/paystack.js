@@ -1,7 +1,7 @@
 function payWithPaystack(depositObj) {
     //e.preventDefault();
 
-    let handler = PaystackPop.setup({
+    const handler = PaystackPop.setup({
       key: 'pk_test_4366ca52f9e1ff5c5b32f122c69ef8bcc1eaca7c', // Replace with your public key
       email: depositObj.email,
       amount: depositObj.amount * 100,

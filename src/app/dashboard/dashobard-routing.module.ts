@@ -12,6 +12,7 @@ import { CoinupComponent } from './lay/coinup/coinup.component';
 import { CoinoutComponent } from './lay/coinout/coinout.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,7 @@ const routes: Routes = [
       },
       { path: 'transactions', component: TransactionsComponent },
       { path: 'withdraw', component: WithdrawComponent },
+      { path: 'feedback', component: FeedbackComponent },
     ]
   }
 ];

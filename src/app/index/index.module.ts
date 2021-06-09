@@ -18,7 +18,8 @@ import { IntroComponent } from './index-content/intro/intro.component';
 import { VideoPresentationComponent } from './index-content/video-presentation/video-presentation.component';
 import { GenerateIncomeComponent } from './index-content/generate-income/generate-income.component';
 import { GetInTouchComponent } from './index-content/get-in-touch/get-in-touch.component';
-
+import { LegalModule } from './legal/legal.module';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -35,11 +36,13 @@ import { GetInTouchComponent } from './index-content/get-in-touch/get-in-touch.c
     VideoPresentationComponent,
     GenerateIncomeComponent,
     GetInTouchComponent,
+    ContactComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
     FlexLayoutModule,
+    LegalModule,
     LogoModule,
     AuthModule,
     IndexRoutingModule

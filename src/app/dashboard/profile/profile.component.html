@@ -17,7 +17,7 @@
         Feedback
       </a>
 
-      <button mat-menu-item [matMenuTriggerFor]="security">
+      <button mat-menu-item [matMenuTriggerFor]="security" [routerLink]="['/dashboard/security']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         <mat-icon>security</mat-icon>
         <span>Security</span>
       </button>
@@ -28,10 +28,10 @@
         </a>
       </mat-menu>
 
-      <a mat-menu-item [routerLink]="['/dashboard/donate']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <!-- <a mat-menu-item [routerLink]="['/dashboard/donate']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         <mat-icon>paid</mat-icon>
         <span>Donate</span>
-      </a>
+      </a> -->
 
   </mat-menu>
 </mat-toolbar>

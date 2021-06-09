@@ -1,15 +1,15 @@
+<div class="breadcrumb-wrap">
+  <ul class="breadcrumb">
+    <li>
+      <a [routerLink]="['/dashboard']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Dashboard</a>
+    </li>
+    <li>profile</li>
+  </ul>
+</div>
+
 <section>
-    <div class="breadcrumb-wrap">
-      <ul class="breadcrumb">
-        <li>
-          <a [routerLink]="['/dashboard']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Dashboard</a>
-        </li>
-        <li>profile</li>
-      </ul>
-    </div>
-  
-    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start">
-      <mat-card class="profile" *ngIf="user">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="1rem" fxLayoutAlign="space-between start">
+      <mat-card fxFlex="50" class="profile" *ngIf="user">
           
         <mat-card-header>
           <div mat-card-avatar class="card-img">
@@ -120,7 +120,7 @@
           </mat-card-content>    
       </mat-card>
 
-      <wager-bank-details *ngIf="user" [user]="user"></wager-bank-details>
+      <wager-bank-details fxFlex="50" *ngIf="user" [user]="user"></wager-bank-details>
     </div>
   
     <!-- Delete Account -->

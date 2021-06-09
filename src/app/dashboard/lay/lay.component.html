@@ -24,7 +24,7 @@
                 <p>You get 2% return on your investment plus your initial investment after a week</p>
               </mat-card-content>
               <mat-card-actions align="end">
-                <button mat-flat-button color="accent">START NOW</button>
+                <a [routerLink]="['/dashboard/lay/coinout']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" mat-flat-button color="accent">START NOW</a>
               </mat-card-actions>
         </mat-card>
 
@@ -42,7 +42,7 @@
                 <p>You get 1% return on your investment every 24 hours plus your initial investment</p>
               </mat-card-content>
               <mat-card-actions align="end">
-                <button mat-flat-button color="accent">START NOW</button>
+                <a [routerLink]="['/dashboard/lay/coinup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" mat-flat-button color="accent">START NOW</a>
               </mat-card-actions>
         </mat-card>
     </div>

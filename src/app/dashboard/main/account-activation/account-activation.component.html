@@ -1,5 +1,5 @@
 <div *ngIf="!isActive">
-    <mat-card>
+    <mat-card fxLayout="row" fxLayoutAlign="space-between center">
         <span class="warning">Your account is not yet activated, check your email to get your account activated to enable more features</span>
         <span class="icons">
             <mat-icon class="email" (click)="resendActivationLink()" matTooltip="Resend activation link">email</mat-icon>

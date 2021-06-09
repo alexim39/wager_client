@@ -7,12 +7,13 @@ import { ProfileDetailsComponent } from './profile/profile-details/profile-detai
 import { CalculatorComponent } from './calculator/calculator.component';
 import { DepositComponent } from './deposit/deposit.component';
 import { LayComponent } from './lay/lay.component';
-import { IndexComponent } from './lay/index/index.component';
 import { CoinupComponent } from './lay/coinup/coinup.component';
 import { CoinoutComponent } from './lay/coinout/coinout.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { WithdrawComponent } from './withdraw/withdraw.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { SecurityComponent } from './security/security.component';
+import { PasswordComponent } from './security/password/password.component';
 
 
 const routes: Routes = [
@@ -33,18 +34,21 @@ const routes: Routes = [
       {
         path: 'lay',
         children: [
-          { path: '', component: LayComponent,
-            children: [
-              { path: '', component: IndexComponent },
-              { path: 'coinout', component: CoinoutComponent },
-              { path: 'coinup', component: CoinupComponent},
-            ]
-          },
+          { path: '', component: LayComponent},
+          { path: 'coinout', component: CoinoutComponent },
+          { path: 'coinup', component: CoinupComponent}
         ]
       },
       { path: 'transactions', component: TransactionsComponent },
       { path: 'withdraw', component: WithdrawComponent },
       { path: 'feedback', component: FeedbackComponent },
+      { 
+        path: 'security',
+        children: [
+          { path: '', component: SecurityComponent },
+          { path: 'password', component: PasswordComponent }
+        ]
+      },
     ]
   }
 ];

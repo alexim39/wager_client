@@ -84,13 +84,11 @@ export class ProfileDetailsComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(profile: ProfileDetailsInterface) {
-
     // add user id
     profile['userId'] = this.user._id;
 
     // push into list
     this.subscriptions.push(
-
       this.profileDetailsService.updateProfile(profile).subscribe((res) => {
         if (res.code === 200) {
           this.snackBar.open(`${res.msg}`, `Close`, {

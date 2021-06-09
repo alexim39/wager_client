@@ -10,7 +10,7 @@ import { BankDetailsInterface, ProfileDetailsService } from '../profile-details.
   templateUrl: './bank-details.component.html',
   styleUrls: ['./bank-details.component.scss', './bank-details.mobile.scss']
 })
-export class BankDetailsComponent implements OnInit {
+export class BankDetailsComponent implements OnInit, OnDestroy {
 
   // init subscriptions list
   subscriptions: Subscription[] = [];

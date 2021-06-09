@@ -8,7 +8,8 @@ import { MainService } from './main.service';
 import { RouterModule } from '@angular/router';
 import { AccountActivationComponent } from './account-activation/account-activation.component';
 import { AccountActivationService } from './account-activation/account-activation.service';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BoxMenuModule } from './box-menu/box-menu.module';
 
 @NgModule({
   declarations: [MainComponent, AccountActivationComponent],
@@ -17,7 +18,9 @@ import { AccountActivationService } from './account-activation/account-activatio
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    FlexLayoutModule,
+    BoxMenuModule
   ],
   exports: [MainComponent, AccountActivationComponent],
   providers: [UserService, MainService, AccountActivationService]

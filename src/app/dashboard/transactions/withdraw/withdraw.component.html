@@ -54,7 +54,7 @@
          <ng-container matColumnDef="Action">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Cancel </th>
             <td mat-cell *matCellDef="let withdraw">
-              <button mat-flat-button [disabled]="disable" (click)="cancelWithdrawal(withdraw._id)">Cancel</button>
+              <button color="warn" mat-flat-button [disabled]="disable" (click)="cancelWithdrawal(withdraw._id)">Cancel</button>
             </td> 
         </ng-container>
         

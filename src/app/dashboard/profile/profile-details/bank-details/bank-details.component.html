@@ -1,4 +1,4 @@
-<mat-card class="bank" *ngIf="user">
+<mat-card *ngIf="user">
 
   <mat-card-header>
     <mat-card-title>Bank Information</mat-card-title>
@@ -6,7 +6,6 @@
   </mat-card-header>
 
   <mat-card-content>
-    <div class="field">
       <div class="mat-subheading-1">Update Bank Information</div>
         <form [formGroup]="bankForm" (ngSubmit)="onSubmit(bankForm.value)">
 
@@ -15,6 +14,7 @@
             <mat-select formControlName="bankName" value="{{user.bankName | titlecase}}">
               <mat-option></mat-option>
 
+              <mat-option value="Access Bank">Access Bank</mat-option>
               <mat-option value="Ecobank Nigeria">Ecobank Nigeria</mat-option>
               <mat-option value="Enterprise Bank Limited">Enterprise Bank Limited</mat-option>
               <mat-option value="Fidelity Bank Nigeria">Fidelity Bank Nigeria</mat-option>
@@ -59,7 +59,6 @@
           <button [disabled]="bankForm.invalid" mat-flat-button color="accent">UPDATE BANK</button>
 
       </form>
-    </div>
   </mat-card-content>
 
   </mat-card>

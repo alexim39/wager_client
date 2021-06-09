@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms'
+import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { UserService, UserInterface } from './../../common/user/user';
@@ -10,7 +10,7 @@ import {FeedbackService, FeedbackInterface} from './feedback.service';
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.scss']
 })
-export class FeedbackComponent implements OnInit {
+export class FeedbackComponent implements OnInit, OnDestroy {
 
   subscriptions: Subscription[] = [];
   user: UserInterface;

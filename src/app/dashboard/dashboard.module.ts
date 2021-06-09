@@ -20,6 +20,7 @@ import { DashboardService } from './dashboard.service';
 import { TransactionsModule } from './transactions/transactions.module';
 import { WithdrawModule } from './withdraw/withdraw.module'
 import { FeedbackModule } from './feedback/feedback.module';
+import { SecurityModule } from './security/security.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { FeedbackModule } from './feedback/feedback.module';
     CommonModule, CalculatorModule, MaterialModule, LogoModule, NotificationModule,
     ProfileModule, MainModule, FlexLayoutModule, RouterModule, FeedbackModule,
     TransactionsModule, BalanceModule, LayModule, DepositModule, WithdrawModule,
-    DasbhoardRoutingModule
+    DasbhoardRoutingModule, SecurityModule
   ],
   exports: [],
   providers: [AuthGuard, UserService, DashboardService]

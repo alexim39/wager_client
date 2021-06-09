@@ -13,9 +13,9 @@ import { BankDetailsComponent } from './profile-details/bank-details/bank-detail
 
 @NgModule({
   declarations: [
-    ProfileComponent, 
-    ProfileDetailsComponent, 
-    DeleteProfileComponent, 
+    ProfileComponent,
+    ProfileDetailsComponent,
+    DeleteProfileComponent,
     BankDetailsComponent
   ],
   imports: [
@@ -25,7 +25,7 @@ import { BankDetailsComponent } from './profile-details/bank-details/bank-detail
     FormsModule,
     FlexLayoutModule,
     PipesModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [ProfileComponent, ProfileDetailsComponent],
   providers: [UserService]

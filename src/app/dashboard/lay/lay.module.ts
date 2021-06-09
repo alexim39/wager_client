@@ -4,7 +4,6 @@ import { LayComponent } from './lay.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './../../common/material/material.module';
 import { RouterModule } from '@angular/router';
-import { IndexComponent } from './index/index.component';
 import { CoinoutComponent } from './coinout/coinout.component';
 import { CoinupComponent } from './coinup/coinup.component';
 import { LayService } from './lay.service';
@@ -14,7 +13,6 @@ import { UserService } from './../../common/user/user';
 @NgModule({
   declarations: [
     LayComponent,
-    IndexComponent,
     CoinoutComponent,
     CoinupComponent
   ],

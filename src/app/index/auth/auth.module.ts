@@ -7,6 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { WrongPassportComponent } from './wrong-passport/wrong-passport.component';
 import { RouterModule } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    FlexLayoutModule
   ],
   exports: [],
   providers: []

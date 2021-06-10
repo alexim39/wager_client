@@ -3,9 +3,9 @@
     <span 
         [matMenuTriggerFor]="appNotification" 
         [matMenuTriggerData]="{user: currentUser}" 
-        [matBadge]="notifications" 
+        [matBadge]="notificationCount" 
         matBadgeOverlap="false" 
-        [matBadgeHidden]="notifications === 0">
+        [matBadgeHidden]="notificationCount === 0">
         Notifications
     </span>
 </a>
@@ -15,11 +15,21 @@
         <!-- <button mat-menu-item>Settings</button>
         <button mat-menu-item>Log off {{user.firstname}}</button> -->
         <div class="content">
-            <section>
-                <div class="mat-h3">New Task Assignment</div><br>
-                <div class="mat-body">Hi {{user.firstname}}, please note that you have been assigned a task by Please note that you have been assigned a task by Alex Imenwo</div>
-                <button mat-flat-button color="warn">Delete</button>
+
+            <section *ngFor="let notification of UnreadNotifications">
+                <div class="mat-h3">
+                    {{notification.title | titlecase}}
+                </div><br>
+                <div class="mat-body">
+                    Hi {{user.firstname}}.
+                    {{notification.body }}
+                </div>
+                <div class="btn" fxLayout="row" fxLayoutAlign="space-between end">
+                    <button class="markAsRead" mat-button color="primary" (click)="markAsRead(notification._id)">Mark as read</button>
+                    <button class="delete" mat-button color="warn" (click)="deleteNotification(notification._id)">Delete</button>
+                </div>
             </section>
+
             <div class="view-all">
                 <a [routerLink]="['/dashboard/notifications']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">View all</a>
             </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Inject, OnDestroy } from '@angular/core';
 import { UserInterface } from './../../../common/user/user';
 import { Subscription } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
@@ -16,7 +16,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './withdraw.component.html',
   styleUrls: ['./withdraw.component.scss']
 })
-export class WithdrawComponent extends TransactionsClass implements OnInit  {
+export class WithdrawComponent extends TransactionsClass implements OnInit, OnDestroy  {
 
   @Input() user: UserInterface;
   subscriptions: Subscription[] = [];
@@ -40,7 +40,7 @@ export class WithdrawComponent extends TransactionsClass implements OnInit  {
     super()
    }
 
-   // check for empty response
+  // check for empty response
   private emptyResponse(array: any) {
     if (array.length === 0) {
       // array empty or does not exist
@@ -53,30 +53,30 @@ export class WithdrawComponent extends TransactionsClass implements OnInit  {
 
   // get client withdraw request
   private withdrawRequest(clientId: string) {
-    this.transactionsService.getWithdrawRequest(clientId).subscribe((res) => {
-
-      if (res.code === 200) {
-
-        // check empty response
-        this.emptyResponse(res.obj);
-
-        // sort arrays by date to return recent first
-        const sortedResult =  res.obj.sort((a: WithdrawalInterface, b: WithdrawalInterface) => {
-          return <any>new Date(b.withdrawDate) - <any> new Date(a.withdrawDate);
-        });
-
-        // Assign the data to the data source for the table to render
-        this.withdrawals = new MatTableDataSource(sortedResult);
-
-        setTimeout(() => this.withdrawals.paginator = this.paginator);
-        setTimeout(() => this.withdrawals.sort = this.sort);
-
-        // get total sum of deposit
-        this.totalWithdrawal = super.getTotalWithdrawal(res.obj);
-      }
-    }, (error) => {
-      console.error(error);
-    });
+    // push into list
+    this.subscriptions.push(
+      this.transactionsService.getWithdrawRequest(clientId).subscribe((res) => {
+        if (res.code === 200) {
+  
+          // check empty response
+          this.emptyResponse(res.obj);
+  
+          // sort arrays by date to return recent first
+          const sortedResult =  res.obj.sort((a: WithdrawalInterface, b: WithdrawalInterface) => {
+            return <any>new Date(b.withdrawDate) - <any> new Date(a.withdrawDate);
+          });
+  
+          // Assign the data to the data source for the table to render
+          this.withdrawals = new MatTableDataSource(sortedResult);
+  
+          setTimeout(() => this.withdrawals.paginator = this.paginator);
+          setTimeout(() => this.withdrawals.sort = this.sort);
+  
+          // get total sum of deposit
+          this.totalWithdrawal = super.getTotalWithdrawal(res.obj);
+        }
+      })
+    )
   }
 
 
@@ -91,23 +91,26 @@ export class WithdrawComponent extends TransactionsClass implements OnInit  {
   }
 
   cancelWithdrawal(withdrawId: string) {
-    this.transactionsService.cancelWithdrawRequest(withdrawId).subscribe((res) => {
-      if (res.code === 200) {
-        this.snackBar.open(`${res.msg}`, `Close`, {
+    // push into list
+    this.subscriptions.push(
+      this.transactionsService.cancelWithdrawRequest(withdrawId).subscribe((res) => {
+        if (res.code === 200) {
+          this.snackBar.open(`${res.msg}`, `Close`, {
+            duration: 4000,
+            panelClass: ['success']
+          });
+          // refresh balance to update new value
+          this.eventEmitterService.refreshButtonClick();
+          // reload the withdraw table
+          this.withdrawRequest(this.user._id);
+        }
+      }, (error) => {
+        this.snackBar.open(`${error.error.msg}`, `Close`, {
           duration: 4000,
-          panelClass: ['success']
+          panelClass: ['error']
         });
-        // refresh balance to update new value
-        this.eventEmitterService.refreshButtonClick();
-        // reload the withdraw table
-        this.withdrawRequest(this.user._id);
-      }
-    }, (error) => {
-      this.snackBar.open(`${error.error.msg}`, `Close`, {
-        duration: 4000,
-        panelClass: ['error']
-      });
-    });
+      })
+    )
   }
 
   // Pending withdrawal

@@ -1,16 +1,13 @@
-<section>
-  <div class="breadcrumb-wrap">
-    <ul class="breadcrumb">
-      <li>
-        <a [routerLink]="['/dashboard']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Dashboard</a>
-      </li>
-      <li></li>
-    </ul>
-  </div>
+<div class="breadcrumb-wrap">
+  <ul class="breadcrumb">
+    <li>
+      <a [routerLink]="['/dashboard']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Dashboard</a>
+    </li>
+    <li></li>
+  </ul>
+</div> 
 
-  
-
-  <section class="main" fxLayout="column">
+<section class="main" fxLayout="column">
 
     <!-- Inactive notification alert -->
     <account-activation></account-activation>
@@ -37,11 +34,10 @@
       </mat-card-header>
      </mat-card> -->
 
-  </section>
-
-  <div class="fab" matTooltip="Deposit">
+    <div class="fab" matTooltip="Deposit">
     <a mat-fab matRipple color="accent" [routerLink]="['/dashboard/deposit']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
       <mat-icon>add</mat-icon>
     </a>
   </div>
 </section>
+

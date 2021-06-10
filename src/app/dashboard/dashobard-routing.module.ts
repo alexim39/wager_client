@@ -14,7 +14,7 @@ import { WithdrawComponent } from './withdraw/withdraw.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { SecurityComponent } from './security/security.component';
 import { PasswordComponent } from './security/password/password.component';
-
+import { ListComponent as NotificationList } from './../dashboard/notification/list/list.component';
 
 const routes: Routes = [
   {
@@ -34,21 +34,22 @@ const routes: Routes = [
       {
         path: 'lay',
         children: [
-          { path: '', component: LayComponent},
+          { path: '', component: LayComponent },
           { path: 'coinout', component: CoinoutComponent },
-          { path: 'coinup', component: CoinupComponent}
+          { path: 'coinup', component: CoinupComponent }
         ]
       },
       { path: 'transactions', component: TransactionsComponent },
       { path: 'withdraw', component: WithdrawComponent },
       { path: 'feedback', component: FeedbackComponent },
-      { 
+      {
         path: 'security',
         children: [
           { path: '', component: SecurityComponent },
           { path: 'password', component: PasswordComponent }
         ]
       },
+      { path: 'notifications', component: NotificationList },
     ]
   }
 ];

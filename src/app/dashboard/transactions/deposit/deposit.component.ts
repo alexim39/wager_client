@@ -47,29 +47,30 @@ export class DepositComponent extends TransactionsClass implements OnInit {
 
   // get client deposit balance
   private getDeposits(clientId: string) {
-    this.transactionsService.getDeposits(clientId).subscribe((res) => {
-      if (res.code === 200) {  
-
-        // check empty response
-        this.emptyResponse(res.obj);
-        
-        // sort arrays by date to return recent first
-        const sortedResult =  res.obj.sort((a: any, b: any) => {
-          return <any>new Date(b.depositDate) - <any> new Date(a.depositDate);
-        });
-
-        // Assign the data to the data source for the table to render
-        this.histories = new MatTableDataSource(sortedResult);
-
-        setTimeout(() => this.histories.paginator = this.paginator);
-        setTimeout(() => this.histories.sort = this.sort);
-
-      }
-      // get total sum of deposit
-      this.totalDeposit = super.getTotalDeposit(res.obj);
-    }, (error) => {
-      console.error(error)
-    })
+    // push into list
+    this.subscriptions.push(
+      this.transactionsService.getDeposits(clientId).subscribe((res) => {
+        if (res.code === 200) {  
+  
+          // check empty response
+          this.emptyResponse(res.obj);
+          
+          // sort arrays by date to return recent first
+          const sortedResult =  res.obj.sort((a: any, b: any) => {
+            return <any>new Date(b.depositDate) - <any> new Date(a.depositDate);
+          });
+  
+          // Assign the data to the data source for the table to render
+          this.histories = new MatTableDataSource(sortedResult);
+  
+          setTimeout(() => this.histories.paginator = this.paginator);
+          setTimeout(() => this.histories.sort = this.sort);
+  
+        }
+        // get total sum of deposit
+        this.totalDeposit = super.getTotalDeposit(res.obj);
+      })
+    )
   }
   
     // apply filter

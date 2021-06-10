@@ -57,29 +57,27 @@ export class LayComponent extends TransactionsClass implements OnInit {
 
   // Get current user investments histories
   private getInvestmntHistory(clientId: string) {
-    this.transactionsService.getHistory(clientId).subscribe((res) => {
-
-      if (res.code === 200) {
-
-        // check empty response
-        this.emptyResponse(res.obj);
-
-        setTimeout(() => this.histories.paginator = this.paginator);
-        setTimeout(() => this.histories.sort = this.sort);
-
-        // sort arrays by date to return recent first
-        const sortedResult = res.obj.sort((a: TransactionsInterface, b: TransactionsInterface) => {
-          return <any>new Date(b.start) - <any>new Date(a.start);
-        });
-
-        // Assign the data to the data source for the table to render
-        this.histories = new MatTableDataSource(sortedResult);
-
-      }
-
-    }, (error) => {
-      console.error(error);
-    });
+    // push into list
+    this.subscriptions.push(
+      this.transactionsService.getHistory(clientId).subscribe((res) => {
+        if (res.code === 200) {
+  
+          // check empty response
+          this.emptyResponse(res.obj);
+  
+          setTimeout(() => this.histories.paginator = this.paginator);
+          setTimeout(() => this.histories.sort = this.sort);
+  
+          // sort arrays by date to return recent first
+          const sortedResult = res.obj.sort((a: TransactionsInterface, b: TransactionsInterface) => {
+            return <any>new Date(b.start) - <any>new Date(a.start);
+          });
+  
+          // Assign the data to the data source for the table to render
+          this.histories = new MatTableDataSource(sortedResult);
+        }
+      })
+    )
   }
 
   // apply filter
@@ -127,17 +125,6 @@ export class LayComponent extends TransactionsClass implements OnInit {
     return super.settLessThanOneMonth(30, startDate, period);
   }
 
-  // unsettle wager outcome
-  unsettledWager(startDate: Date, period: number, wager: any): any {
-    if (super.getUserClosedDeals(startDate, period) && wager) { // if its a closed deal and its a wager
-      if (wager.outcome === null) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-  }
-
   // Get investment profit
   investmentProfit(plan: string, startDate: Date, amount: number, period: number, wager: any): any {
 
@@ -179,34 +166,6 @@ export class LayComponent extends TransactionsClass implements OnInit {
   closedDeals(startDate: Date, period: number): boolean { // Method used to set closed deal on view
     return super.getUserClosedDeals(startDate, period);
   }
-
-  // Get investment status
-  /* investmentStatus(daysleft: number): string {
-    if (daysleft <= 0) {
-      return `<small class="expired"><b>Expired</b></small>`;
-    }
-    if (daysleft === 1) { // If 1 day left
-      return `<small class="running">Still Running with a day left to go</small>`;
-    }
-    return `<small class="running">Still Running with</small> ${daysleft} days <small class="running">left to go</small>`;
-  } */
-
-  // Get investment percentate in string %
-  /* investmentPercentage(plan: string, wager: any): any {
-    if (plan === 'Coinout') {
-      return '2%';
-    }
-    if (plan === 'Coinup') {
-      return '1%';
-    }
-  } */
-
-  // Get tatal investment payout amount
-  /* investmentPayout(profit: number, amount: number, plan: string): any {
-    if (plan === 'Coinout' || plan === 'Coinup') {
-      return profit + amount;
-    }
-  } */
 
   ngOnInit(): void {
     this.getInvestmntHistory(this.user._id)

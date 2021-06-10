@@ -9,7 +9,7 @@
         </mat-form-field>
     </div>
 
-    <table mat-table [dataSource]="histories" matSort >
+    <table mat-table [dataSource]="histories" matSort class="mat-elevation-z5">
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
@@ -104,7 +104,6 @@
 
         <tr mat-row [ngClass]="{
             'closed-deal': closedDeals(history.start, history.period),
-            'unsettledWager': unsettledWager(history.start, history.period, history.wager),
             'getLessThanOneWeek': getLessThanOneWeek(history.start,history.period),
             'getLessThanOneMonth': getLessThanOneMonth(history.start, history.period)
             }" *matRowDef="let history; columns: displayedColumns;">

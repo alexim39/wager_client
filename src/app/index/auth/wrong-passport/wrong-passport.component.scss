@@ -1,19 +1,11 @@
 section {
-    height: 100%;
-    background-color:#eee;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;       
+    background-color:#eee;      
     mat-card {
+        margin: 6rem 0;
         padding: 1.8rem 1.5rem;
         width: 25%;
         color: grey;
         mat-card-header {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             margin-bottom: 1rem;
             img {
                 background-size: cover;
@@ -23,9 +15,6 @@ section {
         }
         mat-card-content {
             form {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
                 mat-form-field {
                     width: 100%;
                     margin-bottom: 1.5rem;
@@ -36,9 +25,6 @@ section {
             }
         }
         mat-card-actions {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
             a {
                 font-weight: normal;
                 font-size: 0.7rem;

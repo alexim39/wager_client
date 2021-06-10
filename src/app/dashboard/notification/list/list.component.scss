@@ -1,0 +1,14 @@
+section {
+    table {
+        width: 100%;
+        td {
+            font-size: 12px;
+            font-family: monospace;
+        }
+    }
+}
+.isEmptyResponse {
+    text-align: center;
+    padding: 3rem;
+    color: #d39f2f;
+}

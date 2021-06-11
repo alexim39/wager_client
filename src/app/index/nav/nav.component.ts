@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  @Input() deviceXs: boolean;
+  @Input() device: boolean;
 
   constructor() { }
 

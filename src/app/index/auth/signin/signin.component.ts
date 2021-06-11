@@ -30,7 +30,7 @@ export class SigninComponent implements OnInit, OnDestroy {
     private authService: AuthService
   ) { }
 
-  public onSignIn(formObject: SignInInterface): void {
+  onSignIn(formObject: SignInInterface): void {
     // push into list
     this.subscriptions.push(
       this.authService.signIn(formObject).subscribe((res: ServerResponse) => {

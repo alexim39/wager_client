@@ -4,25 +4,25 @@
 
         <span class="spacer"></span>
         
-        <div *ngIf="!deviceXs">
-            <a mat-button [routerLink]="['/about']"><!-- <mat-icon>login</mat-icon> --> About Us</a>
-            <a mat-button [routerLink]="['/plans']"><!-- <mat-icon>app_registration</mat-icon> --> Plans</a>
-            <a mat-button [routerLink]="['/help']"><!-- <mat-icon>app_registration</mat-icon> --> Help Center</a>
+        <div *ngIf="!device">
+            <!-- 
+            <a mat-button [routerLink]="['/plans']">Plans</a>
+            <a mat-button [routerLink]="['/help']">Help Center</a>
+            -->
         </div>
         <a mat-icon-button [matMenuTriggerFor]="menu" class="info">
             <mat-icon>more_vert</mat-icon>
         </a>
         <mat-menu #menu="matMenu">
             <a mat-menu-item routerLink="/contacts"><mat-icon>contacts</mat-icon> Contacts</a>
-            <!-- <a mat-menu-item routerLink="/donate"><mat-icon>attach_money</mat-icon> Donate</a> -->
+            <a mat-menu-item routerLink="/about"><mat-icon>attach_money</mat-icon> About Us</a>
         </mat-menu>
     </mat-toolbar-row>
 
-    <mat-toolbar-row *ngIf="deviceXs">
-        <div *ngIf="deviceXs" fxLayout="row" fxLayoutAlign="space-between center">
-            <a mat-button [routerLink]="['/about']"><!-- <mat-icon>login</mat-icon> --> About Us</a>
-            <a mat-button [routerLink]="['/plans']"><!-- <mat-icon>app_registration</mat-icon> --> Plans</a>
-            <a mat-button [routerLink]="['/help']"><!-- <mat-icon>app_registration</mat-icon> --> Help Center</a>
-        </div>
+    <mat-toolbar-row *ngIf="device">
+        <!-- <div *ngIf="device" fxLayout="row" fxLayoutAlign="space-between center">
+            <a mat-button [routerLink]="['/plans']">Plans</a>
+            <a mat-button [routerLink]="['/help']">Help Center</a>
+        </div> -->
     </mat-toolbar-row>
   </mat-toolbar>

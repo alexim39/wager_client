@@ -3,7 +3,9 @@
     <aside fxLayout="column" fxFlexFill>
       <div class="main-footer" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
         <div class="logo">
-          <img src="./../../../assets/img/wager_loader.jpg">
+          <a [routerLink]="['/']">
+            <img src="./../../../assets/img/wager_loader.jpg">
+          </a>
           <div>
             <span>
               Traz Solutions & Technologies is officially registred with Nigeria CAC <br>
@@ -21,9 +23,10 @@
   
       <div class="sub-footer" fxLayout="row" fxLayoutAlign="space-between center" fxFlexFill>
         <div class="tnc">
-          <a mat-button  [routerLink]="['./legal/terms']">Terms</a>
-          <a mat-button  [routerLink]="['./legal/privacy']">Privacy</a>
-          <a mat-button  [routerLink]="['./legal/cookies']">Cookies</a>
+          <a mat-button [routerLink]="['/']">Home</a>
+          <a mat-button [routerLink]="['./legal/terms']">Terms</a>
+          <a mat-button [routerLink]="['./legal/privacy']">Privacy</a>
+          <a mat-button [routerLink]="['./legal/cookies']">Cookies</a>
         </div>
         <div class="social">
           <a mat-button class="github" href="#" target="_blank">GitHub</a>

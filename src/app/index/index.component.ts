@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs'
 @Component({
   selector: 'app-index',
   template: `<div fxLayout="column" fxFlexFill>
-               <wager-nav [deviceXs]="deviceXs"></wager-nav>
+               <wager-nav [device]="device"></wager-nav>
                <router-outlet></router-outlet>
                <wager-footer></wager-footer>
               </div>
@@ -14,15 +14,15 @@ import { Subscription } from 'rxjs'
 export class IndexComponent implements OnInit {
 
   subscriptions: Subscription[] = [];
-  deviceXs: boolean;
+  device: boolean;
 
   constructor(private mediaObserver: MediaObserver) { }
 
   ngOnInit(): void {
     this.subscriptions.push(
-      this.mediaObserver.media$.subscribe((result: MediaChange) => {
-        //console.log(result.mqAlias);
-        this.deviceXs = result.mqAlias === 'xs' ? true : false;
+      this.mediaObserver.media$.subscribe((media: MediaChange) => {
+        
+        this.device = media.mqAlias === 'xs' ? true : false;
       })
     )
   }

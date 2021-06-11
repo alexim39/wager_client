@@ -1,0 +1,28 @@
+section {
+    margin: auto;
+    width: 70%;
+    padding: 6rem 0;
+    font-family: monospace;
+    .mapWrapper {
+        .address {
+            address {
+                width: auto;
+                .mat-h3 {
+                    font-weight: 100;
+                }
+            }
+            
+        }
+    }
+    .formWrapper {
+        mat-card {
+            padding: 3rem;
+            width: 100%;
+            form {
+                mat-form-field {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

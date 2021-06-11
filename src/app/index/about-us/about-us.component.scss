@@ -1,0 +1,33 @@
+div {
+    .about-background {
+        //background-color: #2c2f41;
+        width: 100%;
+        text-align: justify;
+        .about {
+            margin: auto;
+            padding-top: 2rem;
+        }
+    }
+
+    .plan-background {
+        background-color: #2c2f41;
+        color: whitesmoke;
+        width: 100%;
+        text-align: justify;
+        .plan {
+            margin: auto;
+            padding-top: 2rem;
+        }
+    }
+
+    .registered-background {
+        //background-color: gray;
+        width: 100%;
+        text-align: justify;
+        .registered {
+            margin: auto;
+        }
+    }
+    
+    
+}

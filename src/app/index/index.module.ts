@@ -11,15 +11,15 @@ import { AuthModule } from './auth/auth.module';
 import { LogoModule } from './../common/logo/logo.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { IndexContentComponent } from './index-content/index-content.component';
-import { PlansComponent } from './plans/plans.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { HelpCenterComponent } from './help-center/help-center.component';
 import { IntroComponent } from './index-content/intro/intro.component';
 import { VideoPresentationComponent } from './index-content/video-presentation/video-presentation.component';
 import { GenerateIncomeComponent } from './index-content/generate-income/generate-income.component';
 import { GetInTouchComponent } from './index-content/get-in-touch/get-in-touch.component';
 import { LegalModule } from './legal/legal.module';
 import { ContactComponent } from './contact/contact.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ContactService } from './contact/contact.service';
 
 @NgModule({
   declarations: [
@@ -29,9 +29,7 @@ import { ContactComponent } from './contact/contact.component';
     FeaturesComponent,
     FooterComponent,
     IndexContentComponent,
-    PlansComponent,
     AboutUsComponent,
-    HelpCenterComponent,
     IntroComponent,
     VideoPresentationComponent,
     GenerateIncomeComponent,
@@ -45,8 +43,9 @@ import { ContactComponent } from './contact/contact.component';
     LegalModule,
     LogoModule,
     AuthModule,
-    IndexRoutingModule
+    IndexRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: []
+  providers: [ContactService]
 })
 export class LandingPageModule { }

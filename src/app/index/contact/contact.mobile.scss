@@ -1,0 +1,24 @@
+@media only screen and (max-width:800px) {
+    /* For tablets: */
+   
+    /* For mobile phones: */
+    section {
+        margin: 3rem 0;
+        address {
+            padding-left: 3rem;
+        }
+    }
+    
+}
+
+
+@media only screen and (max-width:500px) {
+    /* For mobile phones: */
+    section {
+        margin: 3rem 0;
+        address {
+            padding-left: 3rem;
+        }
+    }
+
+}

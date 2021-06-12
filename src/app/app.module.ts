@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './common/token-interceptor';
+//import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { TokenInterceptor } from './common/token-interceptor';
     AppRoutingModule,
     HttpClientModule,
     DashboardModule,
+    //ChartsModule,
     BrowserAnimationsModule
   ],
   providers: [

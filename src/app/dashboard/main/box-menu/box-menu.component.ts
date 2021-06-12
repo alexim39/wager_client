@@ -4,7 +4,7 @@ import { UserService, UserInterface } from './../../../common/user/user';
 
 @Component({
   selector: 'wager-box-menu',
-  styles: ['div { width: auto; margin-top: 1rem;}'],
+  //styles: ['div { width: auto; margin-top: 1rem;}'],
   template: `
     <div *ngIf="user" fxLayout="row" fxLayout.xs="column" fxLayoutGap="1rem" fxLayoutAlign="space-between center">
       <wager-fgr fxFlex="25" [user]="user"></wager-fgr>

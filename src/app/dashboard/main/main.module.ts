@@ -10,9 +10,11 @@ import { AccountActivationComponent } from './account-activation/account-activat
 import { AccountActivationService } from './account-activation/account-activation.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BoxMenuModule } from './box-menu/box-menu.module';
+import { MonthlyProfitGraphComponent } from './monthly-profit-graph/monthly-profit-graph.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
-  declarations: [MainComponent, AccountActivationComponent],
+  declarations: [MainComponent, AccountActivationComponent, MonthlyProfitGraphComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -20,7 +22,8 @@ import { BoxMenuModule } from './box-menu/box-menu.module';
     ReactiveFormsModule,
     RouterModule,
     FlexLayoutModule,
-    BoxMenuModule
+    BoxMenuModule,
+    ChartsModule
   ],
   exports: [MainComponent, AccountActivationComponent],
   providers: [UserService, MainService, AccountActivationService]

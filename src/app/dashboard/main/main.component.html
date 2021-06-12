@@ -7,11 +7,12 @@
   </ul>
 </div> 
 
-<section class="main" fxLayout="column">
+<section *ngIf="currentUser" class="main" fxLayout="column" fxLayoutGap="3rem">
 
     <!-- Inactive notification alert -->
     <account-activation></account-activation>
     <wager-box-menu></wager-box-menu>
+    <wager-monthly-profit-graph [user]="currentUser"></wager-monthly-profit-graph>
 
     <!-- 
       1. information about user task

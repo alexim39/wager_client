@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, OnDestroy } from '@angular/core';
 import { UserInterface } from './../../../common/user/user';
 import { Subscription } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
@@ -13,7 +13,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   templateUrl: './lay.component.html',
   styleUrls: ['./lay.component.scss']
 })
-export class LayComponent extends TransactionsClass implements OnInit {
+export class LayComponent extends TransactionsClass implements OnInit, OnDestroy {
 
   @Input() user: UserInterface;
   subscriptions: Subscription[] = [];

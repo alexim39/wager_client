@@ -8,6 +8,10 @@ import { SigninComponent } from './signin/signin.component';
 import { WrongPassportComponent } from './wrong-passport/wrong-passport.component';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { NewPasswordComponent } from './new-password/new-password.component';
+import { NewPasswordService } from './new-password/new-password.service';
+import { ForgotPasswordService } from './forgot-password/forgot-password.service';
 
 
 @NgModule({
@@ -15,7 +19,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AuthComponent,
     SignupComponent,
     SigninComponent,
-    WrongPassportComponent
+    WrongPassportComponent,
+    ForgotPasswordComponent,
+    NewPasswordComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +32,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule
   ],
   exports: [],
-  providers: []
+  providers: [ForgotPasswordService, NewPasswordService]
 })
 export class AuthModule { }

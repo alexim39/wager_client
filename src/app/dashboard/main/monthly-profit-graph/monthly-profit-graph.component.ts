@@ -121,205 +121,201 @@ export class MonthlyProfitGraphComponent extends TransactionsClass implements On
   // Get investment profit
   private investmentProfit(plan: string, startDate: Date, amount: number, period: number) {
 
-    //console.log(wager.games[0].status)
     const daysPast = super.getDaysPast(startDate);
-    
 
-    switch (new Date(startDate).getMonth()) {
-      case 0:
-        //console.log('jan')
-
-        if (plan === 'Coinout') {
-          const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
-          this.janTotalProfit = this.janTotalProfit + profit;
-          this.janTotalDeposit = this.janTotalDeposit + amount;
-        }
-        if (plan === 'Coinup') {
-          const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
-          this.janTotalProfit = this.janTotalProfit + profit;
-          this.janTotalDeposit = this.janTotalDeposit + amount;
-        }
-        this.profitArray[0] = this.janTotalProfit;
-        this.depositArray[0] = this.janTotalDeposit;
-        break;
-
-      case 1:
-        //console.log('feb')
-
-        if (plan === 'Coinout') {
-          const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
-          this.febTotalProfit = this.febTotalProfit + profit;
-          this.febTotalDeposit = this.febTotalDeposit + amount;
-        }
-        if (plan === 'Coinup') {
-          const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
-          this.febTotalProfit = this.febTotalProfit + profit;
-          this.febTotalDeposit = this.febTotalDeposit + amount;
-        }
-        this.profitArray[1] = this.febTotalProfit;
-        this.depositArray[1] = this.febTotalDeposit;
-        break;
-      case 2:
-        //console.log('mar')
-
-        if (plan === 'Coinout') {
-          const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
-          this.marTotalProfit = this.marTotalProfit + profit;
-          this.marTotalDeposit = this.marTotalDeposit + amount;
-        }
-        if (plan === 'Coinup') {
-          const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
-          this.marTotalProfit = this.marTotalProfit + profit;
-          this.marTotalDeposit = this.marTotalDeposit + amount;
-        }
-        this.profitArray[2] = this.marTotalProfit;
-        this.depositArray[2] = this.marTotalDeposit;
-        break;
-      case 3:
-        //console.log('apr')
-
-        if (plan === 'Coinout') {
-          const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
-          this.aprTotalProfit = this.aprTotalProfit + profit;
-          this.aprTotalDeposit = this.aprTotalDeposit + amount;
-        }
-        if (plan === 'Coinup') {
-          const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
-          this.aprTotalProfit = this.aprTotalProfit + profit;
-          this.aprTotalDeposit = this.aprTotalDeposit + amount;
-        }
-        this.profitArray[3] = this.aprTotalProfit;
-        this.depositArray[3] = this.aprTotalDeposit;
-        break;
-      case 4:
-        //console.log('may')
-
-        if (plan === 'Coinout') {
-          const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
-          this.mayTotalProfit = this.mayTotalProfit + profit;
-          this.mayTotalDeposit = this.mayTotalDeposit + amount;
-        }
-        if (plan === 'Coinup') {
-          const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
-          this.mayTotalProfit = this.mayTotalProfit + profit;
-          this.mayTotalDeposit = this.mayTotalDeposit + amount;
-        }
-        this.profitArray[4] = this.mayTotalProfit;
-        this.depositArray[4] = this.mayTotalDeposit;
-        break;
-      case 5:
-        //console.log('jun')
-        
-        if (plan === 'Coinout') {
-          const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
-          this.junTotalProfit = this.junTotalProfit + profit;
-          this.junTotalDeposit = this.junTotalDeposit + amount;
-        }
-        if (plan === 'Coinup') {
-          const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
-          this.junTotalProfit = this.junTotalProfit + profit;
-          this.junTotalDeposit = this.junTotalDeposit + amount;
-        }
-        this.profitArray[5] = this.junTotalProfit;
-        this.depositArray[5] = this.junTotalDeposit;
-        break;
-
-      case 6:
-        //console.log('jul')
-
-        if (plan === 'Coinout') {
-          const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
-          this.julTotalProfit = this.julTotalProfit + profit;
-          this.julTotalDeposit = this.julTotalDeposit + amount;
-        }
-        if (plan === 'Coinup') {
-          const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
-          this.julTotalProfit = this.julTotalProfit + profit;
-          this.julTotalDeposit = this.julTotalDeposit + amount;
-        }
-        this.profitArray[6] = this.julTotalProfit;
-        this.depositArray[6] = this.julTotalDeposit;
-        break;
-      case 7:
-        //console.log('aug')
-
-        if (plan === 'Coinout') {
-          const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
-          this.augTotalProfit = this.augTotalProfit + profit;
-          this.augTotalDeposit = this.augTotalDeposit + amount;
-        }
-        if (plan === 'Coinup') {
-          const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
-          this.augTotalProfit = this.augTotalProfit + profit;
-          this.augTotalDeposit = this.augTotalDeposit + amount;
-        }
-        this.profitArray[7] = this.augTotalProfit;
-        this.depositArray[7] = this.augTotalDeposit;
-        break;
-      case 8:
-        //console.log('sep')
-
-        if (plan === 'Coinout') {
-          const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
-          this.sepTotalProfit = this.sepTotalProfit + profit;
-          this.sepTotalDeposit = this.sepTotalDeposit + amount;
-        }
-        if (plan === 'Coinup') {
-          const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
-          this.sepTotalProfit = this.sepTotalProfit + profit;
-          this.sepTotalDeposit = this.sepTotalDeposit + amount;
-        }
-        this.profitArray[8] = this.sepTotalProfit;
-        this.depositArray[8] = this.sepTotalDeposit;
-        break;
-      case 9:
-        //console.log('oct')
-
-        if (plan === 'Coinout') {
-          const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
-          this.octTotalProfit = this.octTotalProfit + profit;
-          this.octTotalDeposit = this.octTotalDeposit + amount;
-        }
-        if (plan === 'Coinup') {
-          const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
-          this.octTotalProfit = this.octTotalProfit + profit;
-          this.octTotalDeposit = this.octTotalDeposit + amount;
-        }
-        this.profitArray[9] = this.octTotalProfit;
-        this.depositArray[9] = this.octTotalDeposit;
-        break;
-      case 10:
-        //console.log('nov')
-
-        if (plan === 'Coinout') {
-          const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
-          this.novTotalProfit = this.novTotalProfit + profit;
-          this.novTotalDeposit = this.novTotalDeposit + amount;
-        }
-        if (plan === 'Coinup') {
-          const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
-          this.novTotalProfit = this.novTotalProfit + profit;
-          this.novTotalDeposit = this.novTotalDeposit + amount;
-        }
-        this.profitArray[10] = this.novTotalProfit;
-        this.depositArray[10] = this.novTotalDeposit;
-        break;
-      case 11:
-        //console.log('dec')
-
-        if (plan === 'Coinout') {
-          const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
-          this.decTotalProfit = this.decTotalProfit + profit;
-          this.decTotalDeposit = this.decTotalDeposit + amount;
-        }
-        if (plan === 'Coinup') {
-          const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
-          this.decTotalProfit = this.decTotalProfit + profit;
-          this.decTotalDeposit = this.decTotalDeposit + amount;
-        }
-        this.profitArray[11] = this.decTotalProfit;
-        this.depositArray[11] = this.decTotalDeposit;
+    // get profit for jan
+    if (new Date(startDate).getMonth() == 0) {
+      if (plan === 'Coinout') {
+        const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
+        this.janTotalProfit = this.janTotalProfit + profit;
+        this.janTotalDeposit = this.janTotalDeposit + amount;
+      }
+      if (plan === 'Coinup') {
+        const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
+        this.janTotalProfit = this.janTotalProfit + profit;
+        this.janTotalDeposit = this.janTotalDeposit + amount;
+      }
+      this.profitArray[0] = this.janTotalProfit;
+      this.depositArray[0] = this.janTotalDeposit;
     }
+
+    // get profit for feb
+    if (new Date(startDate).getMonth() == 1) {
+      if (plan === 'Coinout') {
+        const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
+        this.febTotalProfit = this.febTotalProfit + profit;
+        this.febTotalDeposit = this.febTotalDeposit + amount;
+      }
+      if (plan === 'Coinup') {
+        const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
+        this.febTotalProfit = this.febTotalProfit + profit;
+        this.febTotalDeposit = this.febTotalDeposit + amount;
+      }
+      this.profitArray[1] = this.febTotalProfit;
+      this.depositArray[1] = this.febTotalDeposit;
+    }
+
+    // get profit for mar
+    if (new Date(startDate).getMonth() == 2) {
+      if (plan === 'Coinout') {
+        const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
+        this.marTotalProfit = this.marTotalProfit + profit;
+        this.marTotalDeposit = this.marTotalDeposit + amount;
+      }
+      if (plan === 'Coinup') {
+        const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
+        this.marTotalProfit = this.marTotalProfit + profit;
+        this.marTotalDeposit = this.marTotalDeposit + amount;
+      }
+      this.profitArray[2] = this.marTotalProfit;
+      this.depositArray[2] = this.marTotalDeposit;
+    }
+
+    // get profit for apr
+    if (new Date(startDate).getMonth() == 3) {
+      if (plan === 'Coinout') {
+        const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
+        this.aprTotalProfit = this.aprTotalProfit + profit;
+        this.aprTotalDeposit = this.aprTotalDeposit + amount;
+      }
+      if (plan === 'Coinup') {
+        const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
+        this.aprTotalProfit = this.aprTotalProfit + profit;
+        this.aprTotalDeposit = this.aprTotalDeposit + amount;
+      }
+      this.profitArray[3] = this.aprTotalProfit;
+      this.depositArray[3] = this.aprTotalDeposit;
+    }
+
+    // get profit for may
+    if (new Date(startDate).getMonth() == 4) {
+      if (plan === 'Coinout') {
+        const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
+        this.mayTotalProfit = this.mayTotalProfit + profit;
+        this.mayTotalDeposit = this.mayTotalDeposit + amount;
+      }
+      if (plan === 'Coinup') {
+        const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
+        this.mayTotalProfit = this.mayTotalProfit + profit;
+        this.mayTotalDeposit = this.mayTotalDeposit + amount;
+      }
+      this.profitArray[4] = this.mayTotalProfit;
+      this.depositArray[4] = this.mayTotalDeposit;
+    }
+
+    // get profit for jun
+    if (new Date(startDate).getMonth() == 5) {
+      if (plan === 'Coinout') {
+        const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
+        this.junTotalProfit = this.junTotalProfit + profit;
+        this.junTotalDeposit = this.junTotalDeposit + amount;
+      }
+      if (plan === 'Coinup') {
+        const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
+        this.junTotalProfit = this.junTotalProfit + profit;
+        this.junTotalDeposit = this.junTotalDeposit + amount;
+      }
+      this.profitArray[5] = this.junTotalProfit;
+      this.depositArray[5] = this.junTotalDeposit;
+    }
+
+    // get profit for jul
+    if (new Date(startDate).getMonth() == 6) {
+      if (plan === 'Coinout') {
+        const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
+        this.julTotalProfit = this.julTotalProfit + profit;
+        this.julTotalDeposit = this.julTotalDeposit + amount;
+      }
+      if (plan === 'Coinup') {
+        const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
+        this.julTotalProfit = this.julTotalProfit + profit;
+        this.julTotalDeposit = this.julTotalDeposit + amount;
+      }
+      this.profitArray[6] = this.julTotalProfit;
+      this.depositArray[6] = this.julTotalDeposit;
+    }
+
+    // get profit for aug
+    if (new Date(startDate).getMonth() == 7) {
+      if (plan === 'Coinout') {
+        const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
+        this.augTotalProfit = this.augTotalProfit + profit;
+        this.augTotalDeposit = this.augTotalDeposit + amount;
+      }
+      if (plan === 'Coinup') {
+        const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
+        this.augTotalProfit = this.augTotalProfit + profit;
+        this.augTotalDeposit = this.augTotalDeposit + amount;
+      }
+      this.profitArray[7] = this.augTotalProfit;
+      this.depositArray[7] = this.augTotalDeposit;
+    }
+
+    // get profit for sep
+    if (new Date(startDate).getMonth() == 8) {
+      if (plan === 'Coinout') {
+        const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
+        this.sepTotalProfit = this.sepTotalProfit + profit;
+        this.sepTotalDeposit = this.sepTotalDeposit + amount;
+      }
+      if (plan === 'Coinup') {
+        const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
+        this.sepTotalProfit = this.sepTotalProfit + profit;
+        this.sepTotalDeposit = this.sepTotalDeposit + amount;
+      }
+      this.profitArray[8] = this.sepTotalProfit;
+      this.depositArray[8] = this.sepTotalDeposit;
+    }
+
+    // get profit for oct
+    if (new Date(startDate).getMonth() == 9) {
+      if (plan === 'Coinout') {
+        const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
+        this.octTotalProfit = this.octTotalProfit + profit;
+        this.octTotalDeposit = this.octTotalDeposit + amount;
+      }
+      if (plan === 'Coinup') {
+        const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
+        this.octTotalProfit = this.octTotalProfit + profit;
+        this.octTotalDeposit = this.octTotalDeposit + amount;
+      }
+      this.profitArray[9] = this.octTotalProfit;
+      this.depositArray[9] = this.octTotalDeposit;
+    }
+
+    // get profit for nov
+    if (new Date(startDate).getMonth() == 10) {
+      if (plan === 'Coinout') {
+        const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
+        this.novTotalProfit = this.novTotalProfit + profit;
+        this.novTotalDeposit = this.novTotalDeposit + amount;
+      }
+      if (plan === 'Coinup') {
+        const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
+        this.novTotalProfit = this.novTotalProfit + profit;
+        this.novTotalDeposit = this.novTotalDeposit + amount;
+      }
+      this.profitArray[10] = this.novTotalProfit;
+      this.depositArray[10] = this.novTotalDeposit;
+    }
+
+    // get profit for dec
+    if (new Date(startDate).getMonth() == 11) {
+      if (plan === 'Coinout') {
+        const profit = daysPast * amount * super.get_X_Percent(2); // 2% of amount
+        this.decTotalProfit = this.decTotalProfit + profit;
+        this.decTotalDeposit = this.decTotalDeposit + amount;
+      }
+      if (plan === 'Coinup') {
+        const profit = daysPast * amount * super.get_X_Percent(1); // 1% of amount
+        this.decTotalProfit = this.decTotalProfit + profit;
+        this.decTotalDeposit = this.decTotalDeposit + amount;
+      }
+      this.profitArray[11] = this.decTotalProfit;
+      this.depositArray[11] = this.decTotalDeposit;
+    }
+
+    
 
     // Check if its a closed deal
     /* if (this.closedDeals(startDate, period)) {

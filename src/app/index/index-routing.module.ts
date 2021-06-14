@@ -9,6 +9,8 @@ import { TermsComponent } from './legal/terms/terms.component';
 import { PrivacyComponent } from './legal/privacy/privacy.component';
 import { CookiesComponent } from './legal/cookies/cookies.component';
 import { ContactComponent } from './contact/contact.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { NewPasswordComponent } from './auth/new-password/new-password.component';
 
 
 const routes: Routes = [
@@ -18,8 +20,8 @@ const routes: Routes = [
       { path: '', component: IndexContentComponent },
       { path: 'signin', component: WrongPassportComponent },
       { path: 'about', component: AboutUsComponent },
-      //{ path: 'plans', component: PlansComponent },
-      //{ path: 'help', component: HelpCenterComponent },
+      { path: 'forgot-password', component: ForgotPasswordComponent },
+      { path: 'new-password/:userId', component: NewPasswordComponent },
       { path: 'contacts', component: ContactComponent },
       {
         path: 'legal', component: LegalComponent,

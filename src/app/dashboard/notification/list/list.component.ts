@@ -50,30 +50,35 @@ export class ListComponent implements OnInit, OnDestroy {
       // get current user details from data service
       this.userService.getUser().subscribe((user: UserInterface) => {
         this.user = user;
-        
-        this.notificationService.getNotifications(this.user._id).subscribe((res) => {
-          if (res.code === 200) {
 
-            // check empty response
-            this.emptyResponse(res.obj);
-
-            // sort arrays by date to return recent first
-          const sortedResult =  res.obj.sort((a: NotificationInterface, b: NotificationInterface) => {
-            return <any>new Date(b.createDate) - <any> new Date(a.createDate);
-          });
-
-            // set notification counter
-          this.getNotificationCounter(sortedResult);
-
-            // Assign the data to the data source for the table to render
-            this.notifications = new MatTableDataSource(res.obj);
-
-            setTimeout(() => this.notifications.paginator = this.paginator);
-            setTimeout(() => this.notifications.sort = this.sort);
-          }
-        })
+        // load table
+        this.getNotificationList(this.user._id)
       })
     )
+  }
+
+  private getNotificationList(userId: string) {
+    this.notificationService.getNotifications(userId).subscribe((res) => {
+      if (res.code === 200) {
+
+        // check empty response
+        this.emptyResponse(res.obj);
+
+        // sort arrays by date to return recent first
+      const sortedResult =  res.obj.sort((a: NotificationInterface, b: NotificationInterface) => {
+        return <any>new Date(b.createDate) - <any> new Date(a.createDate);
+      });
+
+        // set notification counter
+      this.getNotificationCounter(sortedResult);
+
+        // Assign the data to the data source for the table to render
+        this.notifications = new MatTableDataSource(res.obj);
+
+        setTimeout(() => this.notifications.paginator = this.paginator);
+        setTimeout(() => this.notifications.sort = this.sort);
+      }
+    })
   }
 
   private getNotificationCounter(notifications: NotificationInterface[]) {
@@ -97,6 +102,9 @@ export class ListComponent implements OnInit, OnDestroy {
               duration: 4000,
               panelClass: ['success']
             });
+
+            // reload table
+            this.getNotificationList(this.user._id)
           }
         })
       )
@@ -114,8 +122,9 @@ export class ListComponent implements OnInit, OnDestroy {
             duration: 4000,
             panelClass: ['success']
           });
-          // refresh balance to update new value
-          //this.eventEmitterService.refreshButtonClick();
+          
+          // reload table
+          this.getNotificationList(this.user._id)
         }
       })
     )

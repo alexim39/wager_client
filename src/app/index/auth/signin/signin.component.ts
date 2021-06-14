@@ -95,6 +95,11 @@ export class SigninComponent implements OnInit, OnDestroy {
     })
   }
 
+  closeDialog(): void {
+    // close dialog
+    this.thisDialogRef.close()
+  }
+
   ngOnDestroy() {
     // unsubscribe list
     this.subscriptions.forEach(subscription => {

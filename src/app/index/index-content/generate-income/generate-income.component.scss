@@ -1,5 +1,5 @@
 .how-we-make-money {
-    height: 30rem;
+    height: auto;
     //background: url('./../../../../assets/img/bet2.png');
     background-color: rgb(231, 231, 231);
     background-repeat: no-repeat;
@@ -7,8 +7,9 @@
     background-position: center;
     section {
         margin: auto;
-        width: 50%;
+        //width: 50%;
         padding: 2rem 0;
+        height: 100%;
         h3 {
             font-family: monospace;
             font-weight: bold;

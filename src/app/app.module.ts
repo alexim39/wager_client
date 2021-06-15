@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './common/token-interceptor';
-//import { ChartsModule } from 'ng2-charts';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,6 @@ import { TokenInterceptor } from './common/token-interceptor';
     AppRoutingModule,
     HttpClientModule,
     DashboardModule,
-    //ChartsModule,
     BrowserAnimationsModule
   ],
   providers: [
@@ -26,6 +25,10 @@ import { TokenInterceptor } from './common/token-interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
+    },
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
     }
   ],
   bootstrap: [AppComponent]

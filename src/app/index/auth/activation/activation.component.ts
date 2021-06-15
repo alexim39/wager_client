@@ -7,7 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'wager-activation',
   templateUrl: './activation.component.html',
-  styleUrls: ['./activation.component.scss']
+  styleUrls: ['./activation.component.scss', './activation.component.scss']
 })
 export class ActivationComponent implements OnInit, OnDestroy {
 

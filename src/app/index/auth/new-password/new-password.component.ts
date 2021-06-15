@@ -9,7 +9,7 @@ import { UserInterface } from './../../../common/user/user';
 @Component({
   selector: 'wager-new-password',
   templateUrl: './new-password.component.html',
-  styleUrls: ['./new-password.component.scss']
+  styleUrls: ['./new-password.component.scss', './new-password.mobile.scss' ]
 })
 export class NewPasswordComponent implements OnInit, OnDestroy {
 

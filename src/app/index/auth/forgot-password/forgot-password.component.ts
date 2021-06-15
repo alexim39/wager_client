@@ -7,9 +7,9 @@ import { ForgotPasswordService, ForgotPasswordInterface } from './forgot-passwor
 import { UserService, UserInterface } from './../../../common/user/user';
 
 @Component({
-  selector: 'kudutask-forgot-password',
+  selector: 'wager-forgot-password',
   templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss']
+  styleUrls: ['./forgot-password.component.scss', './forgot-password.mobile.scss']
 })
 export class ForgotPasswordComponent implements OnInit, OnDestroy {
 

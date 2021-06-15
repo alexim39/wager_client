@@ -11,6 +11,7 @@ import { CookiesComponent } from './legal/cookies/cookies.component';
 import { ContactComponent } from './contact/contact.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { NewPasswordComponent } from './auth/new-password/new-password.component';
+import { ActivationComponent } from './auth/activation/activation.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: '', component: IndexContentComponent },
       { path: 'signin', component: WrongPassportComponent },
       { path: 'about', component: AboutUsComponent },
+      { path: 'signup/:userId', component: ActivationComponent },
       { path: 'forgot-password', component: ForgotPasswordComponent },
       { path: 'new-password/:userId', component: NewPasswordComponent },
       { path: 'contacts', component: ContactComponent },

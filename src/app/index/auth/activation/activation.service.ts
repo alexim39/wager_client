@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError, of } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { map, catchError, retry } from 'rxjs/operators';
-import { UserInterface } from './../../../common/user/user';
 import { ServerResponse } from './../../../common/server/response.interface';
 import { environment } from 'src/environments/environment';
+
 
 const httpOptions = {
   withCredentials: true,
@@ -16,7 +16,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class AccountActivationService {
+export class ActivationService {
   private API_DOMAIN: string = environment.API_DOMAIN;
 
   constructor(private http: HttpClient) { }
@@ -36,13 +36,19 @@ export class AccountActivationService {
     // return throwError(`Something went wrong, please try again.`)
   }
 
-
-  sendLink(userId: string): Observable<ServerResponse> {
-    return this.http.get<ServerResponse>(`${this.API_DOMAIN}/api/auth/activation-link/${userId}`, httpOptions)
+  activate(userId: string): Observable<ServerResponse> {
+    return this.http.get<ServerResponse>(`${this.API_DOMAIN}/api/auth/activate/${userId}`, httpOptions)
       .pipe(
         retry(2), // retry a failed request up to 2 times
         catchError(this.handleError)
       );
   }
 
+  resendLink(userId: string): Observable<ServerResponse> {
+    return this.http.get<ServerResponse>(`${this.API_DOMAIN}/api/auth/activation-link/${userId}`, httpOptions)
+      .pipe(
+        retry(2), // retry a failed request up to 2 times
+        catchError(this.handleError)
+      );
+  }
 }

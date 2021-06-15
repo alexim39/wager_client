@@ -12,6 +12,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { NewPasswordComponent } from './new-password/new-password.component';
 import { NewPasswordService } from './new-password/new-password.service';
 import { ForgotPasswordService } from './forgot-password/forgot-password.service';
+import { ActivationService } from './activation/activation.service';
+import { ActivationComponent } from './activation/activation.component';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { ForgotPasswordService } from './forgot-password/forgot-password.service
     SigninComponent,
     WrongPassportComponent,
     ForgotPasswordComponent,
-    NewPasswordComponent
+    NewPasswordComponent,
+    ActivationComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +35,6 @@ import { ForgotPasswordService } from './forgot-password/forgot-password.service
     FlexLayoutModule
   ],
   exports: [],
-  providers: [ForgotPasswordService, NewPasswordService]
+  providers: [ForgotPasswordService, NewPasswordService, ActivationService]
 })
 export class AuthModule { }

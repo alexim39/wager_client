@@ -57,5 +57,8 @@
 
     <mat-checkbox color="primary" formControlName="tnc">Have you seen our T&C?</mat-checkbox>
 
-    <button [disabled]="form.invalid" mat-flat-button color="accent">SIGN UP</button>
+    <button [disabled]="form.invalid || isSpinning" mat-flat-button color="accent">
+        <img *ngIf="isSpinning" src="./../../../../assets/img/spinner.gif">
+        SIGN UP
+    </button>
 </form>

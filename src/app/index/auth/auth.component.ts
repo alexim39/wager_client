@@ -23,7 +23,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.mediaObserver.media$.subscribe((change: MediaChange) => {
         this.deviceXs = change.mqAlias === 'xs' ? true : false;
-        console.log(this.deviceXs)
+        //console.log(this.deviceXs)
       })
     )
   }

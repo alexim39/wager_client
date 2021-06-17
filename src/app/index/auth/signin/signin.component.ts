@@ -21,6 +21,7 @@ export class SigninComponent implements OnInit, OnDestroy {
   currentUser: UserInterface;
   subscriptions: Subscription[] = [];
   form: FormGroup;
+  isSpinning: boolean = false;
 
   constructor(
     private thisDialogRef: MatDialogRef<AuthComponent>,
@@ -31,6 +32,8 @@ export class SigninComponent implements OnInit, OnDestroy {
   ) { }
 
   onSignIn(formObject: SignInInterface): void {
+    this.isSpinning = true;
+
     // push into list
     this.subscriptions.push(
       this.authService.signIn(formObject).subscribe((res: ServerResponse) => {
@@ -42,6 +45,8 @@ export class SigninComponent implements OnInit, OnDestroy {
           this.router.navigate(['/dashboard']);
           // close dialog
           this.thisDialogRef.close()
+          // stop spinner
+          this.isSpinning = false;
 
         }
       }, (error) => {
@@ -49,6 +54,8 @@ export class SigninComponent implements OnInit, OnDestroy {
           duration: 8000,
           panelClass: ['error']
         });
+        // stop spinner
+        this.isSpinning = false;
 
         if (error.status === 401) {
           if (typeof(Storage) !== "undefined") {

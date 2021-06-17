@@ -5,6 +5,8 @@ import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/fo
 import { SignUpInterface } from './signup.interface';
 import { ServerResponse } from './../../../common/server/response.interface';
 import { AuthService } from './../auth.service';
+import { AuthComponent } from './../auth.component';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'wager-signup',
@@ -16,13 +18,17 @@ export class SignupComponent implements OnInit, OnDestroy {
   signUp_hide = true;
   // init subscriptions list
   subscriptions: Subscription[] = [];
-  form: FormGroup;
+  form: FormGroup;  
+  isSpinning: boolean = false;
+
 
   constructor(
+    private thisDialogRef: MatDialogRef<AuthComponent>,
     private snackBar: MatSnackBar,
     private auth: AuthService) { }
 
   onSignUp(formObject: SignUpInterface): void {
+    this.isSpinning = true;
 
     // push into list
     this.subscriptions.push(
@@ -34,6 +40,10 @@ export class SignupComponent implements OnInit, OnDestroy {
             duration: 8000,
             panelClass: ['success']
           });
+          // close dialog
+          this.thisDialogRef.close()
+          // stop spinner
+          this.isSpinning = false;
         }
 
       }, (error) => {
@@ -41,6 +51,8 @@ export class SignupComponent implements OnInit, OnDestroy {
           duration: 8000,
           panelClass: ['error']
         });
+        // stop spinner
+        this.isSpinning = false;
       })
     )
   }

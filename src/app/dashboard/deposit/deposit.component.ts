@@ -24,6 +24,7 @@ export class DepositComponent extends DashboardClass implements OnInit {
   submitBtn: boolean = true;
   //paystackWindow: any;
   paystackPayload: any;
+  isSpinning: boolean = false;
 
   constructor(
     private userService: UserService,
@@ -55,6 +56,7 @@ export class DepositComponent extends DashboardClass implements OnInit {
   }
 
   onSubmit(amount: number) {
+    this.isSpinning = true;
 
     const depositObj: DepositInterface = {
       userId: this.user._id,
@@ -66,7 +68,8 @@ export class DepositComponent extends DashboardClass implements OnInit {
     };
 
     // external paystack function
-    payWithPaystack(depositObj)
+    payWithPaystack(depositObj);
+    this.isSpinning = false;
   }
 
 

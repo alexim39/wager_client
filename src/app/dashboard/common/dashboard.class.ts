@@ -12,7 +12,7 @@ export class DashboardClass { // UserDashboardClass is technically user class
     let sum = 0;
 
     deposits.forEach((deposit: any) => {
-      if (deposit.transactionStatus === 'Completed') {
+      if (deposit.transactionStatus === 'Success') {
         sum += +deposit.amount;
       }
     })

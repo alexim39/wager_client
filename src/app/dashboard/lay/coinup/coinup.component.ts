@@ -16,7 +16,7 @@ export class CoinupComponent extends DashboardClass implements OnInit, OnDestroy
   // init subscriptions list
   subscriptions: Subscription[] = [];
   user: UserInterface;
-
+  isSpinning: boolean = false;
   // Init Btn
   cashupBtn: boolean;
   // Cashup properties
@@ -69,6 +69,7 @@ export class CoinupComponent extends DashboardClass implements OnInit, OnDestroy
    
    // Submit Cashup Investment Details
    submitCashUp(cashupAmount: number, duration: number) {
+     this.isSpinning = true;
  
      if (!this.isInvestFromDepositBalance) { // Check investmnt deposit options
  
@@ -93,12 +94,16 @@ export class CoinupComponent extends DashboardClass implements OnInit, OnDestroy
   
             // refresh balance to update new value
             this.eventEmitterService.refreshButtonClick();
+            // stop spinner
+            this.isSpinning = false;
           }
         }, (error) => {
           this.snackBar.open(`${error.error.msg}`, `Close`, {
             duration: 4000,
             panelClass: ['error']
           });
+          // stop spinner
+          this.isSpinning = false;
         })
       )
  

@@ -16,6 +16,7 @@ export class WithdrawComponent implements OnInit {
   subscriptions: Subscription[] = [];
   user: UserInterface;
   onSubmitBtn: boolean;
+  isSpinning: boolean = false;
 
   constructor(
     private userService: UserService,
@@ -45,6 +46,8 @@ export class WithdrawComponent implements OnInit {
   }
 
   onSubmit(amount: number) {
+    this.isSpinning = true;
+
      // add user id
      const bankObj: WithdrawDetailsInterface = {
       userId: this.user._id,
@@ -55,7 +58,6 @@ export class WithdrawComponent implements OnInit {
 
      // push into list
      this.subscriptions.push(
- 
        this.withdrawDetailsService.withdraw(bankObj).subscribe((res) => {
          if (res.code === 200) {
            this.snackBar.open(`${res.msg}`, `Close`, {
@@ -65,12 +67,16 @@ export class WithdrawComponent implements OnInit {
 
            // refresh balance to update new value
            this.eventEmitterService.refreshButtonClick();
+           // stop spinner
+           this.isSpinning = false;
          }
        }, (error) => {
          this.snackBar.open(`${error.error.msg}`, `Close`, {
            duration: 4000,
            panelClass: ['error']
          });
+         // stop spinner
+         this.isSpinning = false;
        })
      )
   }

@@ -17,10 +17,9 @@ export class CoinoutComponent extends DashboardClass implements OnInit, OnDestro
   // init subscriptions list
   subscriptions: Subscription[] = [];
   user: UserInterface;
-
+  isSpinning: boolean = false;
   // Submit Btn
   cashoutBtn: boolean;
-  isInvestFromDepositBalance: boolean;
 
 
   constructor(
@@ -32,7 +31,6 @@ export class CoinoutComponent extends DashboardClass implements OnInit, OnDestro
     super()
     // disable btn by default
     this.cashoutBtn = true;
-    this.isInvestFromDepositBalance = false;
   }
 
   ngOnInit(): void {
@@ -61,8 +59,7 @@ export class CoinoutComponent extends DashboardClass implements OnInit, OnDestro
   }
 
   onSubmit(cashoutAmount: number) {
-
-    if (!this.isInvestFromDepositBalance) { // toogle deposit source
+    this.isSpinning = true;
 
       const coinoutObj: LayInterface = {
         userId: this.user._id,
@@ -85,48 +82,28 @@ export class CoinoutComponent extends DashboardClass implements OnInit, OnDestro
 
             // refresh balance to update new value
             this.eventEmitterService.refreshButtonClick();
+            // stop spinner
+            this.isSpinning = false;
           }
         }, (error) => {
           this.snackBar.open(`${error.error.msg}`, `Close`, {
             duration: 4000,
             panelClass: ['error']
           });
+          // stop spinner
+          this.isSpinning = false;
         })
       )
-
-    } /* else {
-
-       const coinoutObj: LayInterface = {
-        userId: this.user._id,
-        amount: cashoutAmount,
-        layedFrom: 'withdrawable',
-        period: 6, // 6 days used instead of 7 since sunday is not involed
-        plan: 'Coinout',
-        transactionId: super.generateTransactionId(),
-        transactionStatus: 'completed', // Note: this values should come from the payment gateway - pending, failed or complete
-      };
-
-      // push into list
-      this.subscriptions.push(
-        this.layService.coinoutFromWithdrawable(coinoutObj).subscribe((res) => {
-          if (res.code === 200) {
-            this.snackBar.open(`${res.msg}`, `Close`, {
-              duration: 4000,
-              panelClass: ['success']
-            });
-
-            // refresh balance to update new value
-            this.eventEmitterService.refreshButtonClick();
-          }
-        }, (error) => {
-          this.snackBar.open(`${error.error.msg}`, `Close`, {
-            duration: 4000,
-            panelClass: ['error']
-          });
-        })
-      )
-    } */
   }
+
+  // you can put this method in a module and reuse it as needed
+  /* resetForm(form: FormGroup) {
+    form.reset();
+
+    Object.keys(form.controls).forEach(key => {
+      form.get(key).setErrors(null) ;
+    });
+  } */
 
   ngOnDestroy() {
     // unsubscribe list

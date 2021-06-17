@@ -42,7 +42,10 @@
   
         <!-- <mat-slide-toggle #investFromBalanceBox [checked]="isInvestFromDepositBalance" (change)="chooseInvestmntOptions(investFromBalanceBox.checked)">Lay from withdrawable balance</mat-slide-toggle> -->
   
-        <button [disabled]="cashupBtn" (click)="submitCashUp(+cashupAmount.value, cashupDuration.value)" type="button" mat-flat-button color="accent">SUBMIT</button>
+        <button [disabled]="cashupBtn || isSpinning" (click)="submitCashUp(+cashupAmount.value, cashupDuration.value); cashupAmount.value = undefined; cashupDuration.value = 0; " type="button" mat-flat-button color="accent">
+          <img *ngIf="isSpinning" src="./../../../assets/img/spinner.gif">
+          SUBMIT
+        </button>
   
       </form>
     </mat-card>

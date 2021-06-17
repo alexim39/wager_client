@@ -32,7 +32,10 @@
         </mat-error>
     </mat-form-field>
 
-    <button [disabled]="form.invalid" mat-flat-button color="accent">SIGN IN</button>
+    <button [disabled]="form.invalid || isSpinning" mat-flat-button color="accent">
+        <img *ngIf="isSpinning" src="./../../../../assets/img/spinner.gif">
+        SIGN IN
+    </button>
 
     <a (click)="closeDialog()" [routerLink]="['/forgot-password']">Forgot your password?</a>
 </form>

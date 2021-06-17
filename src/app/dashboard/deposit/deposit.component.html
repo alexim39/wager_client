@@ -17,7 +17,10 @@
             <mat-hint>Amount range for deposit is &#8358; 3,000.00 - &#8358; 100,000.00</mat-hint>
           </mat-form-field>
 
-          <button type="button" [disabled]="submitBtn" (click)="onSubmit(+depositAmount.value)" mat-flat-button color="accent">SUBMIT</button>
+          <button type="button" [disabled]="submitBtn || isSpinning" (click)="onSubmit(+depositAmount.value)" mat-flat-button color="accent">
+            <img *ngIf="isSpinning" src="./../../../assets/img/spinner.gif">
+            SUBMIT
+          </button>
 
         </form>
       </mat-card>

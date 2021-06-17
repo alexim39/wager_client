@@ -12,7 +12,7 @@
   </div>
 
   <mat-card class="coinout">
-    <form fxLayout="column" fxLayoutAlign="space-between">
+    <form fxLayout="column" fxLayoutAlign="space-between" #form="ngForm">
 
       <mat-form-field>
         <mat-label>Enter amount</mat-label>
@@ -20,9 +20,10 @@
         <mat-hint>Amount range for Coin-out is &#8358; 5,000.00 - &#8358; 100,000.00</mat-hint>
       </mat-form-field>
 
-      <!-- <mat-slide-toggle #investFromBalanceBox [checked]="isInvestFromDepositBalance" (change)="chooseInvestmntOptions(investFromBalanceBox.checked)">Lay from withdrawable balance</mat-slide-toggle> -->
-
-      <button type="button" [disabled]="cashoutBtn" (click)="onSubmit(+cashoutAmount.value)" mat-flat-button color="accent">SUBMIT</button>
+      <button type="button" [disabled]="cashoutBtn || isSpinning" (click)="onSubmit(+cashoutAmount.value); cashoutAmount.value = undefined; " mat-flat-button color="accent">
+        <img *ngIf="isSpinning" src="./../../../assets/img/spinner.gif">
+        SUBMIT
+      </button>
 
     </form>
   </mat-card>

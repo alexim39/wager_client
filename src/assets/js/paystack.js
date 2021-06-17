@@ -15,7 +15,7 @@ function payWithPaystack(depositObj) {
         //let message = 'Payment complete! Reference: ' + response.reference;
         //window.location = `http://localhost:4201/api/deposit/verify/${response.reference}/${depositObj.userId}`;
         $.ajax({
-            url: `http://localhost:4201/api/deposit/verify/${response.reference}/${depositObj.userId}`,
+            url: `https://wagerapi.herokuapp.com/api/deposit/verify/${response.reference}/${depositObj.userId}`,
             method: 'get',
             beforeSend: (xhr) => {
                 xhr.setRequestHeader("Authorization", 'Bearer sk_test_b441baf1041718a36f921848b12d804e11e7abc9');

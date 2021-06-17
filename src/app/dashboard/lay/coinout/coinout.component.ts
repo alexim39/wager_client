@@ -96,15 +96,6 @@ export class CoinoutComponent extends DashboardClass implements OnInit, OnDestro
       )
   }
 
-  // you can put this method in a module and reuse it as needed
-  /* resetForm(form: FormGroup) {
-    form.reset();
-
-    Object.keys(form.controls).forEach(key => {
-      form.get(key).setErrors(null) ;
-    });
-  } */
-
   ngOnDestroy() {
     // unsubscribe list
     this.subscriptions.forEach(subscription => {

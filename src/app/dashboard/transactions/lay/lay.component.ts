@@ -35,7 +35,7 @@ export class LayComponent extends TransactionsClass implements OnInit, OnDestroy
 
 
   constructor(
-    private transactionsService: TransactionsService,
+    public transactionsService: TransactionsService,
     private breakpointObserver: BreakpointObserver
   ) {
     super();
@@ -56,7 +56,7 @@ export class LayComponent extends TransactionsClass implements OnInit, OnDestroy
 
 
   // Get current user investments histories
-  private getInvestmntHistory(clientId: string) {
+  private getInvestmntHistory(clientId: string): void {
     // push into list
     this.subscriptions.push(
       this.transactionsService.getHistory(clientId).subscribe((res) => {

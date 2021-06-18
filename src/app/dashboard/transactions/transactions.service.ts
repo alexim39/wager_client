@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { map, catchError, retry } from 'rxjs/operators';
+import { Observable, throwError, BehaviorSubject } from 'rxjs';
+import { tap, catchError, retry } from 'rxjs/operators';
 import { ServerResponse } from './../../common/server/response.interface';
 import { environment } from 'src/environments/environment';
 
@@ -37,7 +37,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TransactionsService {
-  private API_DOMAIN: string = environment.API_DOMAIN;
+  showSpinner: BehaviorSubject<boolean> = new BehaviorSubject(undefined);
+  private readonly API_DOMAIN: string = environment.API_DOMAIN;
 
   constructor(private http: HttpClient) { }
 
@@ -59,9 +60,11 @@ export class TransactionsService {
 
   // Get user Investment Details
   getHistory(userId: string): Observable<ServerResponse> {
+    this.showSpinner.next(true);
     return this.http.get<ServerResponse>(`${this.API_DOMAIN}/api/lay/transactions/lay/${userId}`, httpOptions)
     .pipe(
-      retry(2), 
+      retry(2),
+      tap(response => this.showSpinner.next(false), error => this.showSpinner.next(false)),
       catchError(this.handleError)
     );
   }

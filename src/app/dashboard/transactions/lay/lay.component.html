@@ -1,7 +1,9 @@
-<div *ngIf="isEmptyResponse then showResult else noResult"></div>
-<ng-template #showResult>
-<section>
+<mat-progress-bar mode="indeterminate" *ngIf="transactionsService.showSpinner | async"></mat-progress-bar>
 
+<section *ngIf="!(transactionsService.showSpinner | async)">
+  <div *ngIf="isEmptyResponse then showResult else noResult"></div>
+  
+  <ng-template #showResult>
     <div class="filter">
         <mat-form-field>
             <mat-label>Search Table</mat-label>
@@ -110,14 +112,14 @@
         </tr>
 
       </table>
-
+    
       <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </ng-template>
+
+    <ng-template #noResult> 
+      <div class="isEmptyResponse" *ngIf="!isEmptyResponse">
+          No lay transaction found
+      </div>
+    </ng-template>
 
 </section>
-</ng-template>
-
-<ng-template #noResult>
-  <div class="isEmptyResponse">
-      No lay transaction found
-  </div>
-</ng-template>
